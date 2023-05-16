@@ -1,5 +1,5 @@
 # Appendix
-I wrote the document to notify some settings and errors we should to know for OS development.
+I wrote the document to notify some settings and errors I experienced in OS development.
 
 ## C/C++
 ### # C: linux/init.h: No such file or directory.
@@ -71,10 +71,16 @@ Just install `bison`.
 ##### 1. Install `bison`
     $ sudo apt install bison
     
-### # make: No rule to make target
+### # make: No rule to make target 1
 > make\[2\]: *** No rule to make target 'arch/x86/entry/syscalls/syscall_32.tbl', needed by 'arch/x86/include/generated/uapi/asm/unistd_32.h'.  Stop.
 
 #### Solution
 ##### 1. Change `SUBDIRS=` to `M=`
 Support for the variable `SUBDIRS` was removed since Linux 5.3.
 ##### 2. Change `$(PWD)` to `$(shell pwd)`
+
+### # make: No rule to make target 2
+> make\[2\]: *** No rule to make target '/home/reruo/바탕화면/hellokernel/hellok.o', needed by '__build'.  Stop.
+
+#### Solution
+##### 1.
