@@ -84,3 +84,12 @@ Support for the variable `SUBDIRS` was removed since Linux 5.3.
 
 #### Solution
 ##### 1.
+
+### # bits/libc-header-start.h: No such file or directory
+> /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No such file or directory
+
+The error occurs when you try to use `-m32` option for GCC.
+#### Solution
+##### 1. Install multilib things
+
+    $ sudo apt install gcc-multilib g++-multilib
