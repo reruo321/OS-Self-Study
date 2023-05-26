@@ -15,5 +15,6 @@ If `num`=2, the option to make the stack boundary aligned to 2^2 = 4 would not b
 If 64-bit machines use 8-byte address field, why the default byte boundary is 16 bytes, instead of 8 bytes?
 Actually, it is allowed to set `num`=3 on x86-64 when **SSE extensions** are disabled with GCC's `-mno-sse` option.
 
-x86-64 and AMD64 System V ABI require 16-byte stack alignment, since some SSE instructions and 16-byte aligned objects need such alignment.
-Using `-mpreferred-stack-boundary=3` option makes trouble when functions compiled with 16-byte stack alignment are called with misaligned stack. Therefore, you must use `-mno-sse` option on GCC to disable the SSE extensions. Otherwise, you must build all modules with the option, including any libraries.
+x86-64 and AMD64 System V ABI require 16-byte stack alignment, since some SSE instructions and 16-byte aligned objects need such alignment. ([Data alignment](https://github.com/reruo321/CPP-Self-Study/tree/master/CS/C/Structure-Padding))
+Using `-mpreferred-stack-boundary=3` option makes trouble when functions compiled with 16-byte stack alignment are called with misaligned stack.
+Therefore, you must use `-mno-sse` option on GCC to disable the SSE extensions. Otherwise, you must build all modules with the option, including any libraries.
