@@ -1,6 +1,7 @@
 # OS-Self-Study
-My OS Self-study Repository
+My OS Self-study Repository is for
 
+* Computer System
 * Operating Systems
 * Linux Kernel Modules
 
