@@ -12,7 +12,7 @@ If `num`=2, the option to make the stack boundary aligned to 2^2 = 4 would not b
     $ gcc -g -o hello hello.c -m32 -mpreferred-stack-boundary=2
 
 #### 3. (`num`=3) Use GCC `-mno-sse` option.
-https://gcc.gnu.org/legacy-ml/gcc-patches/2012-05/msg01334.html
+GCC allows `-mpreferred-stack-boundary=3` on x86-64: https://gcc.gnu.org/legacy-ml/gcc-patches/2012-05/msg01334.html
 
 If 64-bit machines use 8-byte address field, why the default byte boundary is 16 bytes, instead of 8 bytes?
 Actually, it is allowed to set `num`=3 on x86-64 when **SSE extensions** are disabled with GCC's `-mno-sse` option.
