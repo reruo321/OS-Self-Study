@@ -9,9 +9,9 @@ Improper using of many C library functions including `strcpy`, `strcat`, and `sp
 ### Return-Oriented Programming
 **Return-oriented programming (ROP)** is an stack exploit technique that allows an attacker to execute *exploit code*, and to do control-flow hijacking. After overwriting the return address with the exploit code pointer, running `ret` instruction will jump the program to the exploit code.
 
-## Solutions
-### 1. ASLR
-**Address Space Layout Randomization(ASLR)** is a computer security technique that randomly arranges the address space positions of key data of a process including:
+## Defenses
+### ASLR
+**Address Space Layout Randomization (ASLR)** is a computer security technique that randomly arranges the address space positions of key data of a process including:
 
 * Program Code
 * Library Code
@@ -19,3 +19,13 @@ Improper using of many C library functions including `strcpy`, `strcat`, and `sp
 * Global Variables
 * Heap Data
 
+Here are some characteristics of ASLR.
+
+* Increases security by making the address harder to predict.
+* Modern Linux kernels have it enabled by default.
+* Focuses on preventing exploitation. Not on trapping, alerting, or giving information on attack.
+* Low entropy in 32-bit systems, because of small range of random addresses.
+
+#### Entropy
+**Entropy** has many meaning, and it means the randomness of OS or application in computing.
+It is used in cryptography or others where random data are needed.
