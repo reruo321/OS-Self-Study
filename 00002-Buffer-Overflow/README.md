@@ -27,5 +27,5 @@ Here are some characteristics of ASLR.
 * Low entropy in 32-bit systems, because of small range of random addresses.
 
 #### Entropy
-**Entropy** has many meaning, and it means the randomness of OS or application in computing.
+**Entropy** has many meaning, and it means the randomness of an OS or an application in computing.
 It is used in cryptography or others where random data are needed.
