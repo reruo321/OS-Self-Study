@@ -29,3 +29,5 @@ Here are some characteristics of ASLR.
 #### Entropy
 **Entropy** has many meaning, and it means the randomness of an OS or an application in computing.
 It is used in cryptography or others where random data are needed.
+
+#### NOP Sled
