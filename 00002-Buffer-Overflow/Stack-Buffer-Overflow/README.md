@@ -29,7 +29,7 @@ To check the ASLR setting in Ubuntu, type this on the terminal.
 When you disable ASLR temporary, it will be enabled again after reboot.
 
 ##### Solution 1
-The command disables randomization temporarily on Ubuntu.
+The command disables randomization temporarily in Ubuntu.
 
     echo 0 > /proc/sys/kernel/randomize_va_space
 
@@ -37,6 +37,15 @@ The command disables randomization temporarily on Ubuntu.
 The command summons a shell with ASLR disabled. Any commands being run from the shell are ASLR-disabled too.
 
     setarch `uname -m` -R $SHELL
+
+##### Solution 3
+If ASLR still works, disable GDB's ASLR.
+
+    (gdb) set disable-randomization on
+
+To turn it on again,
+
+    (gdb) set disable-randomization off
 
 ## Steps
 
