@@ -8,11 +8,18 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 
 ## Prerequisites
 ### Disabling ASLR
-To exploit the program easily for study purpose, we can disable ASLR. It is recommended to disable just temporary for security.
+To exploit the program easily for study purpose, we can disable ASLR. It is recommended to disable just temporary for your computer's security.
 
 #### Checking
+Check if the `main`'s entry address of the program is continuously changed whenever you run it on GDB.
+
+    (gdb) disas main
+
+If does, ASLR is active.
+
+To check the ASLR setting in Ubuntu, type this on the terminal.
       
-    cat /proc/sys/kernel/randomize_va_space
+    $ cat /proc/sys/kernel/randomize_va_space
 
 * 0: No randomization
 * 1: Conservative randomization
@@ -20,8 +27,9 @@ To exploit the program easily for study purpose, we can disable ASLR. It is reco
 
 #### Disabling Temporary
 When you disable ASLR temporary, it will be enabled again after reboot.
+
 ##### Solution 1
-The command disables randomization temporary on Ubuntu.
+The command disables randomization temporarily on Ubuntu.
 
     echo 0 > /proc/sys/kernel/randomize_va_space
 
