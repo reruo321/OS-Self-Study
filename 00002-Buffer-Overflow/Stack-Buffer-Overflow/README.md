@@ -48,5 +48,14 @@ To turn it on again,
     (gdb) set disable-randomization off
 
 ## Steps
+### Compiling
+Compile the code as 32-bit with the debugging information.
 
-https://github.com/reruo321/CPP-Self-Study/blob/master/CS/Assembly/GCC/-mpreferred-stack-boundary/README.md
+    gcc -g -o hello hello.c -m32 (-mpreferred-stack-boundary=2)
+
+* [What is `-mpreferred-stack-boundary`?](https://github.com/reruo321/CPP-Self-Study/blob/master/CS/Assembly/GCC/-mpreferred-stack-boundary/README.md)
+
+### Examining Source
+We can examine the source of the program compiled with `-g` option in several ways.
+
+Note that normal programs compiled without any debugging information cannot do these. Instead, we should examine the code by assembly.
