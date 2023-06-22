@@ -56,6 +56,27 @@ Compile the code as 32-bit with the debugging information.
 * [What is `-mpreferred-stack-boundary`?](https://github.com/reruo321/CPP-Self-Study/blob/master/CS/Assembly/GCC/-mpreferred-stack-boundary/README.md)
 
 ### Examining Source
-We can examine the source of the program compiled with `-g` option in several ways.
+We can examine the source of the program compiled with `-g` option, using GDB, in several ways.
 
-Note that normal programs compiled without any debugging information cannot do these. Instead, we should examine the code by assembly.
+#### 1. `info fun`
+The command is used to see all defined functions in the program.
+
+    (gdb) info fun
+
+![infofun](https://github.com/reruo321/OS-Self-Study/assets/48712088/00a9bd56-635f-4b13-a59a-6199b63265e1)
+
+We can assume `strcpy()` call might be vulnerable.
+
+#### 2. `list`
+The command is used to display the source code.
+
+    (gdb) list
+
+![list](https://github.com/reruo321/OS-Self-Study/assets/48712088/3b5dc9d7-ef78-464f-a0bc-33d0a4fbd03d)
+
+We can find `strcpy()` part is vulnerable.
+
+#### 3. *Objdump*
+Unfortunately, we cannot work with two cheats above on normal programs having neither source code nor debugging information. Instead, we should manually examine its assembly code with ***objdump***.
+
+### 
