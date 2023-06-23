@@ -5,7 +5,7 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 ### Terminology
 1. **Stack Buffer Overflow**: The exploit attack to overwrite things on the stack.
 2. **ASLR**: The defense to increase system's entropy pool and security. Reduces exploitation possibility of stack buffer overflow attack.
-3. **NOP Sled**: The sequence of NOP instructions to slide the CPU's instruction execution flow. It is usually used to exploit software by reaching the exploit code. A lot of NOP sled trials might have a chance to bypass **ASLR**.
+3. **NOP Sled**: The sequence of NOP instructions to slide the CPU's instruction execution flow. It is usually used to exploit software by reaching the exploit code. A lot of NOP sled brute-force trials might have a chance to bypass **ASLR**.
 
 ### Practice Process
 1. (To make the exploit practice easy) Disable ASLR.
@@ -17,6 +17,9 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 7. Select one of the word-addresses in the NOP sleds' part.
 8. In the payload, replace the extra bytes with the repetition of word-address you chose from the Step 7.
 9. Execute the payload again, and see if it runs a shell.
+
+### Notes
+1. The practice assumes there is no ASLR in exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sleds / Range-of-Address-Randomization`.
 
 ## 1. Prerequisites
 ### Disabling ASLR
