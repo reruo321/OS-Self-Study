@@ -12,9 +12,11 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 2. Compile a source code.
 3. Examine the source code to find the vulnerability of the program.
 4. Analyze stack to estimate the bytes of payload.
-5. Make a payload: `NOP sleds + shellcode + extra bytes`
+5. Make a payload: `NOP sleds + Shellcode + Extra bytes`
 6. Execute the payload, and inspect the memory of crashed program.
-7. 
+7. Select one of the word-addresses in the NOP sleds' part.
+8. In the payload, replace the extra bytes with the repetition of word-address you chose from the Step 7.
+9. Execute the payload again, and see if it runs a shell.
 
 ## 1. Prerequisites
 ### Disabling ASLR
