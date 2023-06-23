@@ -2,11 +2,21 @@
 My experimental project for stack buffer overflow, ASLR, and NOP sled.
 
 ## Summary
+### Terminology
 1. **Stack Buffer Overflow**: The exploit attack to overwrite things on the stack.
 2. **ASLR**: The defense to increase system's entropy pool and security. Reduces exploitation possibility of stack buffer overflow attack.
-3. **NOP Sled**: The sequence of NOP instructions to slide the CPU's instruction execution flow. It is usually used to exploit software by reaching the exploit code.
+3. **NOP Sled**: The sequence of NOP instructions to slide the CPU's instruction execution flow. It is usually used to exploit software by reaching the exploit code. A lot of NOP sled trials might have a chance to bypass **ASLR**.
 
-## Prerequisites
+### Practice Process
+1. (To make the exploit practice easy) Disable ASLR.
+2. Compile a source code.
+3. Examine the source code to find the vulnerability of the program.
+4. Analyze stack to estimate the bytes of payload.
+5. Make a payload: `NOP sleds + shellcode + extra bytes`
+6. Execute the payload, and inspect the memory of crashed program.
+7. 
+
+## 1. Prerequisites
 ### Disabling ASLR
 To exploit the program easily for study purpose, we can disable ASLR. It is recommended to disable just temporary for your computer's security.
 
@@ -47,16 +57,15 @@ To turn it on again,
 
     (gdb) set disable-randomization off
 
-## Steps
-### Compiling
+### 2. Compiling
 Compile the code as 32-bit with the debugging information.
 
     gcc -g -o hello hello.c -m32 (-mpreferred-stack-boundary=2)
 
 * [What is `-mpreferred-stack-boundary`?](https://github.com/reruo321/CPP-Self-Study/blob/master/CS/Assembly/GCC/-mpreferred-stack-boundary/README.md)
 
-### Examining Source
-We can examine the source of the program compiled with `-g` option, using GDB, in several ways.
+### 3. Examining Source
+By examining the source, we can find the vulnerability of the program. We can do it in several ways.
 
 #### 1. `info fun`
 The command is used to see all defined functions in the program.
@@ -77,6 +86,6 @@ The command is used to display the source code.
 We can find `strcpy()` part is vulnerable.
 
 #### 3. *Objdump*
-Unfortunately, we cannot work with two cheats above on normal programs having neither source code nor debugging information. Instead, we should manually examine its assembly code with ***objdump***.
+We could examine the source code with the two methods above. Unfortunately, we cannot work with them on normal programs having neither original source code nor debugging information. Instead, we should manually examine its assembly code with ***objdump***.
 
-### 
+### 3. Analyzing Stack
