@@ -16,4 +16,6 @@ Follow this if you have already installed Python3. It creates a symbolic link.
     Python 3.10.6
 
 ## Payload Injection
+Did you forget how to put an input in a program on GDB?
+
 Read this: https://reverseengineering.stackexchange.com/questions/13928/managing-inputs-for-payload-injection
