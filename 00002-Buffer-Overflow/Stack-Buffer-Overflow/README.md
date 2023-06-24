@@ -79,7 +79,7 @@ To turn it on again,
 ### 2. Compiling
 Compile the code as 32-bit with the debugging information.
 
-    gcc -g -o hello hello.c -m32 (-mpreferred-stack-boundary=2)
+    gcc -g hello.c -o hello -fno-stack-protector -m32
 
 * [What is `-mpreferred-stack-boundary`?](https://github.com/reruo321/CPP-Self-Study/blob/master/CS/Assembly/GCC/-mpreferred-stack-boundary/README.md)
 
@@ -102,9 +102,12 @@ The command is used to display the source code.
 
 ![list](https://github.com/reruo321/OS-Self-Study/assets/48712088/3b5dc9d7-ef78-464f-a0bc-33d0a4fbd03d)
 
-We can find `strcpy()` part is vulnerable.
+We can find `strcpy()` part in `fun()` is vulnerable.
 
 #### 3. *Objdump*
 We could examine the source code with the two methods above. Unfortunately, we cannot work with them on normal programs having neither original source code nor debugging information. Instead, we should manually examine its assembly code with ***objdump***.
 
 ### 3. Analyzing Stack
+
+### 4. 
+$(python -c 'print("\x41" * 127 + "\x42" * 4 + "\x43" + "\x44" + "\x45" + "\x46")')
