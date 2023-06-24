@@ -1,13 +1,17 @@
-# Stack Buffer Overflow
+# Stack Buffer Overflow Project
 My experimental project for stack buffer overflow, ASLR, and NOP sled.
 
 ## Summary
 ### Terminology
-1. **Stack Buffer Overflow**: The exploit attack to overwrite things on the stack.
-2. **ASLR**: The defense to increase system's entropy pool and security. Reduces exploitation possibility of stack buffer overflow attack.
-3. **NOP Sled**: The sequence of NOP instructions to slide the CPU's instruction execution flow. It is usually used to exploit software by reaching the exploit code. A lot of NOP sled brute-force trials might have a chance to bypass **ASLR**.
+* **Stack Buffer Overflow**: An exploit attack to overwrite things on the stack.
+* **ASLR**: A defense to increase system's entropy pool and security. Reduces exploitation possibility of stack buffer overflow attack.
+* **NOP Sled**: A sequence of NOP instructions to slide the CPU's instruction execution flow. It is usually used to exploit software by reaching the exploit code.
+* **Brute Force**: A problem-solving technique that finds all the possible solutions, to find a satisfactory solution to a given problem.
+* **Brute Force Attack**: A hacking method that uses trial and error.
+* **Restrict Entropy**: Reducing the entropy of the randomized address makes the guess easier. One of the methods to do it is setting a huge amount of dummy environment variables so that making the initial stack size smaller.
+* **Information Leak**: A way to use vulnerability exposing some part of randomized address, or dump parts of libraries. It is the most effective way of bypassing ASLR.
 
-### Practice Process
+### Process
 1. (To make the exploit practice easy) Disable ASLR.
 2. Compile a source code.
 3. Examine the source code to find the vulnerability of the program.
@@ -18,8 +22,18 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 8. In the payload, replace the extra bytes with the repetition of word-address you chose from the Step 7.
 9. Execute the payload again, and see if it runs a shell.
 
+### Bypassing ASLR
+1. Brute Force Attack
+2. NOP Sled
+3. Restrict Entropy
+4. Information Leak
+
 ### Notes
-1. The practice assumes there is no ASLR in exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sleds / Range-of-Address-Randomization`.
+1. The practice assumes there is no ASLR in an exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sleds / Range-of-Address-Randomization`.
+
+    When we exploit by overwriting a return address, considering all possibility of placing the starting sleds in all byte-address is also okay. However, it is way more inefficient than placing in the start of word-address. Because of the data alignment, the return address will lie only at an aligned block.
+
+![divvssub](https://github.com/reruo321/OS-Self-Study/assets/48712088/530e82d0-4ade-437f-afa7-ef1c0ebfd7e7)
 
 ## 1. Prerequisites
 ### Disabling ASLR
