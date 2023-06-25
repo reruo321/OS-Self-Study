@@ -107,7 +107,10 @@ We can find `strcpy()` part in `fun()` is vulnerable.
 #### 3. *Objdump*
 We could examine the source code with the two methods above. Unfortunately, we cannot work with them on normal programs having neither original source code nor debugging information. Instead, we should manually examine its assembly code with ***objdump***.
 
-### 3. Analyzing Stack
+### 4. Analyzing Stack
 
-### 4. 
+
+
+### 5. Making Payload
+
 $(python -c 'print("\x41" * 127 + "\x42" * 4 + "\x43" + "\x44" + "\x45" + "\x46")')
