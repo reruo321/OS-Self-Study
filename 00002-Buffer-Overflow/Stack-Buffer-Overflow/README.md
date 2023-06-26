@@ -29,11 +29,11 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 4. Information Leak
 
 ### Notes
-1. The practice assumes there is no ASLR in an exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sleds / Range-of-Address-Randomization`. It is the formula considering the most efficient way to exploit with two factors.
+1. The practice assumes there is no ASLR in an exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sleds / Range-of-Address-Randomization`. It is the the most efficient exploitation formula when considering just two factors.
 
 ![divvssub](https://github.com/reruo321/OS-Self-Study/assets/48712088/530e82d0-4ade-437f-afa7-ef1c0ebfd7e7)
 
-When we exploit by overwriting a return address, other exploiting patterns - such as considering all possibility of placing the starting sleds in `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, and becomes less efficient way to exploit.
+When we exploit by overwriting a return address, other exploiting patterns - such as considering all possibility of placing the starting sleds in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, and becomes less efficient way to exploit.
 
 ## 1. Prerequisites
 ### Disabling ASLR
