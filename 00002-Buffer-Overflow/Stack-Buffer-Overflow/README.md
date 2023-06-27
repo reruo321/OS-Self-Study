@@ -35,6 +35,8 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 
 When we exploit by overwriting a return address, other exploiting patterns - such as considering all possibility of placing the starting sleds in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, and becomes less efficient way to exploit.
 
+2. When examining the program, the exact addresses, immediates, or instructions from my project may be different in yours! Despite the same environment, they can be changed every single time you start the GDB.
+
 ## 1. Prerequisites
 ### Disabling ASLR
 To exploit the program easily for study purpose, we can disable ASLR. It is recommended to disable just temporary for your computer's security.
@@ -108,8 +110,37 @@ We can find `strcpy()` part in `fun()` is vulnerable.
 We could examine the source code with the two methods above. Unfortunately, we cannot work with them on normal programs having neither original source code nor debugging information. Instead, we should manually examine its assembly code with ***objdump***.
 
 ### 4. Analyzing Stack
+![retaddress](https://github.com/reruo321/OS-Self-Study/assets/48712088/32eec58c-79bf-417a-861d-b085536c7249)
 
+Disassembling `main()`, we learn that the return address after `fun()` is `0x56556202`.
 
+![print ret](https://github.com/reruo321/OS-Self-Study/assets/48712088/b08f90ee-0049-49a1-8c6f-678e9d4c1809)
+
+Also, by tracking `%esp` by `i r` command, we can find the stack grows down from `0xffffd084` to `0xffffd080` when calling `fun()`. This means that the return address is stored in `0xffffd080`.
+
+![x100retadd](https://github.com/reruo321/OS-Self-Study/assets/48712088/56e6710b-a909-40a1-b06b-adce4367af6a)
+
+    x/100wx $sp-200
+
+(We can also scan the stack by using `x` (examine) command around `%esp`.
+
+![funallocate7c](https://github.com/reruo321/OS-Self-Study/assets/48712088/f7e2202f-06ad-4ae3-ac28-00437355133b)
+
+(No further stack frame change after `0x565561e1 nop`, before `leave` which releases the stack frame.)
+
+Here are the instructions that changes `fun()`'s stack frame, excluding `call`s.
+
+    0x565561ad <+0>:	push   %ebp
+    0x565561b0 <+3>:	push   %ebx
+    0x565561b1 <+4>:	sub    $0x7c,%esp
+    0x565561bf <+18>:	push   0x8(%ebp)
+    0x565561c5 <+24>:	push   %eax
+    0x565561cb <+30>:	add    $0x8,%esp
+    0x565561d1 <+36>:	push   %eax
+    0x565561d8 <+43>:	push   %eax
+    0x565561de <+49>:	add    $0x8,%esp
+
+They 
 
 ### 5. Making Payload
 
