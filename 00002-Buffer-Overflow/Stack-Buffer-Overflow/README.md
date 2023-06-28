@@ -146,10 +146,19 @@ The figure above shows a part of the stack segment in the memory. The red box is
 
 We can represent the memory like the figure above.
 
+Let's overwrite the return address to see if the analysis was correct! Run the program with this command:
+
     (gdb) run $(python -c 'print("\x41" * 127 + "\x42" * 4 + "\x43" + "\x44" + "\x45" + "\x46")')
 
 ![stackafter](https://github.com/reruo321/OS-Self-Study/assets/48712088/ff036a6f-0134-4c17-8243-16daa7942cbc)
 
+![stackoverdraw](https://github.com/reruo321/OS-Self-Study/assets/48712088/885d82a9-13ef-4a17-83bc-638c9bd9dfe2)
+
+After `strcpy`, the memory becomes like two figures above. The return address is overwritten with some bytes of the input, `0x46454443`.
+
+![sisegment](https://github.com/reruo321/OS-Self-Study/assets/48712088/3e995ecd-6800-4782-9f71-d7705721a37f)
+
+After `ret`, `%eip` goes to `0x46454443`. Since there is nothing in the address, the program receives "Segmentation fault".
 
 ### 5. Making Payload
 
