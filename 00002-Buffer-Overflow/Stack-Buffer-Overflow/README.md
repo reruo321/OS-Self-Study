@@ -35,7 +35,7 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 
 When we exploit by overwriting a return address, other exploiting patterns - such as considering all cases of placing the starting sleds in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, decreases the probability, so becomes less efficient way to exploit.
 
-2. When examining the program, the exact addresses, immediates, or instructions from my project may be different in yours! Despite the same environment, they can be changed every single time you start the GDB.
+2. When examining the program, the exact addresses, immediates, or instructions from my project may be different in yours! Despite the same environment with the same computer, they can be changed every single time you start the GDB.
 
 ## 1. Prerequisites
 ### Disabling ASLR
