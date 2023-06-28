@@ -33,7 +33,7 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 
 ![divvssub](https://github.com/reruo321/OS-Self-Study/assets/48712088/530e82d0-4ade-437f-afa7-ef1c0ebfd7e7)
 
-When we exploit by overwriting a return address, other exploiting patterns - such as considering all possibility of placing the starting sleds in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, and becomes less efficient way to exploit.
+When we exploit by overwriting a return address, other exploiting patterns - such as considering all cases of placing the starting sleds in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, decreases the probability, so becomes less efficient way to exploit.
 
 2. When examining the program, the exact addresses, immediates, or instructions from my project may be different in yours! Despite the same environment, they can be changed every single time you start the GDB.
 
@@ -140,7 +140,13 @@ Since they totally subtract `0x8c` from `%esp`, it becomes `0xffffcff4`.
 
 ![stackbefore](https://github.com/reruo321/OS-Self-Study/assets/48712088/1c257fde-5052-433f-b3d5-2ab55344d452)
 
-The figure above shows a part of the stack segment in the memory. The red square refers to the return address which is the part of stack frame for `main`. The blue highlighted part outside of the return address is the stack frame for `fun`.
+The figure above shows a part of the stack segment in the memory. The red box is the return address which is the part of stack frame for `main`. The blue highlighted part out of the red box is the stack frame for `fun`.
+
+![stackdraw](https://github.com/reruo321/OS-Self-Study/assets/48712088/13c7d35f-07b3-46d7-8a70-6dbf9322fb79)
+
+We can represent the memory like the figure above.
+
+    (gdb) run $(python -c 'print("\x41" * 127 + "\x42" * 4 + "\x43" + "\x44" + "\x45" + "\x46")')
 
 ![stackafter](https://github.com/reruo321/OS-Self-Study/assets/48712088/ff036a6f-0134-4c17-8243-16daa7942cbc)
 
