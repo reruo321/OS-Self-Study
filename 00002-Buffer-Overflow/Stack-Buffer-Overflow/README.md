@@ -161,5 +161,14 @@ After `strcpy`, the memory becomes like two figures above. The return address is
 After `ret`, `%eip` goes to `0x46454443`. Since there is nothing in the address, the program receives "Segmentation fault".
 
 ### 5. Making Payload
+**Payload** of a malicious program is a description to tell the program what to do on a victim's computer. The payload we will use consists of `NOP sleds + Shellcode + Extra bytes`.
 
-$(python -c 'print("\x41" * 127 + "\x42" * 4 + "\x43" + "\x44" + "\x45" + "\x46")')
+#### A. NOP Sleds
+
+
+#### B. Shellcode
+
+#### C. Extra Bytes
+
+
+run $(python -c 'print("\x41" * 127 + "\x42" * 4 + "\x43" + "\x44" + "\x45" + "\x46")')
