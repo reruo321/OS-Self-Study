@@ -1,5 +1,5 @@
 # "Hello, World!" Shellcode
-TODO: Write a shellcode that prints out "Hello, World!\n" to the screen, compile, and execute the program.
+TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86**. Compile and execute the program.
 
 ## Hints
 <details>
