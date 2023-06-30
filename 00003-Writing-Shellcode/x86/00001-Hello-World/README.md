@@ -1,5 +1,5 @@
 # "Hello, World!" Shellcode
-TODO: Write a shellcode that prints out "Hello, World!\n" to the screen.
+TODO: Write a shellcode that prints out "Hello, World!\n" to the screen, compile, and execute the program.
 
 ## Hints
 <details>
@@ -21,7 +21,15 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen.
     * ssize_t write(int fd, const void buf[.count], size_t count);
     * void exit(int status);
 
+### Hint 2: Compile & Execute
 
+3. Compile & Execute
+
+   a. `gcc`: GNU Compiler
+
+   b. `ld`: GNU Linker
+
+   c. Execute the output
 
 </details>
 
