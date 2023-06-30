@@ -78,9 +78,15 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86
         # Linux system call (= interrupt 0x80)
         int $0x80
 
-After writing `hello.s`, compile the code with the command.
+After writing `hello.s`, compile the code with one of these commands.
+
+(In i386)
 
     $ gcc -c helloworld.s && ld helloworld.o -o helloworld
+
+(In x86-64)
+
+    $ gcc -c helloworld.s -m32 && ld helloworld.o -o helloworld -melf_i386
 
 Execute the program like this.
 
