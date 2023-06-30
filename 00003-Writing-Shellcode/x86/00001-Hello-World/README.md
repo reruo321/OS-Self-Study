@@ -61,4 +61,12 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen.
         # Linux system call (= interrupt 0x80)
         int $0x80
 
+After writing `hello.s`, compile the code with the command.
+
+    $ gcc -c test.s && ld test.s -o test
+
+Execute the program like this.
+
+    $ ./test
+
 </details>
