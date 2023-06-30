@@ -7,7 +7,7 @@ Normally, compiling the assembly code in Linux x86_64 like this:
 Will get a 64-bit executable.
 
     $ file hello
-    $ hello: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
+    hello: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
 
 If you want to compile 32-bit one, add some options like this:
 
