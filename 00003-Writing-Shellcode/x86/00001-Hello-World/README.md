@@ -1,7 +1,7 @@
 # "Hello, World!" Shellcode
 ![helloworld](https://github.com/reruo321/OS-Self-Study/assets/48712088/b806ccbe-5ea0-46bf-947a-afde68e742e0)
 
-TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86**. Compile and execute the program.
+TODO: Write a shellcode that prints out "Hello, World!\n" to the screen on **x86**. Compile and execute the program.
 
 ## Hints
 <details>
