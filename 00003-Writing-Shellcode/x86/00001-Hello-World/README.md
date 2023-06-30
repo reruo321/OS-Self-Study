@@ -80,7 +80,7 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86
 
 After writing `hello.s`, compile the code with the command.
 
-    $ gcc -c helloworld.s && ld helloworld.s -o helloworld
+    $ gcc -c helloworld.s && ld helloworld.o -o helloworld
 
 Execute the program like this.
 
