@@ -1,5 +1,7 @@
 # "Hello, 64-bit World!" Shellcode
-TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86_64**. Compile and execute the program.
+![hello64](https://github.com/reruo321/OS-Self-Study/assets/48712088/dda2714d-3f01-4bc6-917a-7f9951639db5)
+
+TODO: Write a shellcode that prints out "Hello, 64-bit World!\n" to the screen in **x86_64**. Compile it and execute the program.
 
 ## Hints
 <details>
