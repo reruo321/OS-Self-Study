@@ -19,7 +19,7 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86
     b. `_start`
 
     * ssize_t write(int *fd*, const void *buf[.count]*, size_t *count*);
-    * void exit(int *status*);
+    * void _exit(int *status*);
 
 ### Hint 2: Compile & Execute
 
@@ -67,9 +67,9 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86
         # Linux system call (= interrupt 0x80)
         int $0x80
 
-    # exit(int status);
+    # _exit(int status);
     
-        # %eax: Linux system call number (exit = 0x01)
+        # %eax: Linux system call number (_exit = 0x01)
         movl $1, %eax
         
         # %ebx: arg0, exit status (= 0)
