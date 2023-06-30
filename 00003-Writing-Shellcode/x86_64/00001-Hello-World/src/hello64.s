@@ -6,12 +6,13 @@ hello:
 .text
 .global _start
 _start:
-        movl $1, %eax
-        movl $1, %edi
-        movl $hello, %esi
-        movl $len, %edx
+        movq $1, %rax
+        movq $1, %rdi
+        movq $hello, %rsi
+        movq $len, %rdx
         syscall
 
-        movl $60, %eax
-        movl $0, %edi
+        movq $60, %rax
+        movq $0, %rdi
         syscall
+
