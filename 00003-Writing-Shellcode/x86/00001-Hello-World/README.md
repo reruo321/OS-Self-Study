@@ -18,8 +18,8 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen in **x86
   
     b. `_start`
 
-    * ssize_t write(int fd, const void buf[.count], size_t count);
-    * void exit(int status);
+    * ssize_t write(int *fd*, const void *buf[.count]*, size_t *count*);
+    * void exit(int *status*);
 
 ### Hint 2: Compile & Execute
 
