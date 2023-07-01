@@ -62,12 +62,16 @@ When you disable ASLR temporary, it will be enabled again after reboot.
 ##### Solution 1
 The command disables randomization temporarily in Ubuntu.
 
-    echo 0 > /proc/sys/kernel/randomize_va_space
+    $ echo 0 > /proc/sys/kernel/randomize_va_space
+
+(If the permission denied, try below.)
+
+    $ sudo bash -c "echo 0 > /proc/sys/kernel/randomize_va_space"
 
 ##### Solution 2
 The command summons a shell with ASLR disabled. Any commands being run from the shell are ASLR-disabled too.
 
-    setarch `uname -m` -R $SHELL
+    $ setarch `uname -m` -R $SHELL
 
 ##### Solution 3
 If ASLR still works, disable GDB's ASLR.
