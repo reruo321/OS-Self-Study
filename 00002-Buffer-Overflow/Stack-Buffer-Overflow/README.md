@@ -16,9 +16,9 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 2. Compile a source code.
 3. Examine the source code to find the vulnerability of the program.
 4. Analyze stack to estimate the bytes of payload.
-5. Make a payload: `NOP sleds + Shellcode + Extra bytes`
+5. Make a payload: `NOP sled + Shellcode + Extra bytes`
 6. Execute the payload, and inspect the memory of crashed program.
-7. Select one of the word-addresses in the NOP sleds' part.
+7. Select one of the word-addresses in the NOP sled' part.
 8. In the payload, replace the extra bytes with the repetition of word-address you chose from the Step 7.
 9. Execute the payload again, and see if it runs a shell.
 
@@ -29,13 +29,17 @@ My experimental project for stack buffer overflow, ASLR, and NOP sled.
 4. Information Leak
 
 ### Notes
-1. The practice assumes there is no ASLR in an exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sleds / Range-of-Address-Randomization`. It is the the most efficient exploitation formula when considering just two factors.
+1. When examining the program, the exact addresses, immediates, or instructions from my project may be different in yours! Despite the same environment with the same computer, they can be changed every single time you start the GDB.
+
+2. The practice assumes there is no ASLR in an exploited environment. If ASLR is enabled, the probability to succeed an exploitation becomes `Bytes-of-NOP-Sled / Range-of-Address-Randomization`. It is the the most efficient exploitation formula when considering just two factors.
 
 ![divvssub](https://github.com/reruo321/OS-Self-Study/assets/48712088/530e82d0-4ade-437f-afa7-ef1c0ebfd7e7)
 
-When we exploit by overwriting a return address, other exploiting patterns - such as considering all cases of placing the starting sleds in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sleds)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, decreases the probability, so becomes less efficient way to exploit.
+When we exploit by overwriting a return address, other exploiting patterns - such as considering all cases of placing the starting sled in the offset `0 ~ (Range-of-Address-Randomization - Bytes-of-NOP-Sled)` in byte-address, like the right side of the figure, is also okay. However, because of the data alignment, the return address will be always word-address aligned. (It will lie one of the rows in the figure.) Therefore, it only increases the denominator, decreases the probability, so becomes less efficient way to exploit.
 
-2. When examining the program, the exact addresses, immediates, or instructions from my project may be different in yours! Despite the same environment with the same computer, they can be changed every single time you start the GDB.
+3. According to the *Notes 2*, it is good to increase the bytes of NOP sled to succeed in the exploit as many as we can. The more NOPs you have, the more chance for you to land in the sled. However, the upper limit of them is `BUFFER_BYTES - SHELLCODE_BYTES`, meaning it will be hard to exploit a tiny buffer.
+  
+   In this case, you can exploit with the **environment variables**! Find the return addresses of the variables, overwrite one of them, and exploit. (I will explain it in detail later...)
 
 ## 1. Prerequisites
 ### Disabling ASLR
@@ -68,6 +72,8 @@ The command disables randomization temporarily in Ubuntu.
 
     $ sudo bash -c "echo 0 > /proc/sys/kernel/randomize_va_space"
 
+To enable it again without rebooting, try the same command with the number `0` changed to `2`.
+
 ##### Solution 2
 The command summons a shell with ASLR disabled. Any commands being run from the shell are ASLR-disabled too.
 
@@ -85,7 +91,7 @@ To turn it on again,
 ### 2. Compiling
 Compile the code as 32-bit with the debugging information.
 
-    gcc -g hello.c -o hello -fno-stack-protector -m32
+    $ gcc -g hello.c -o hello -fno-stack-protector -m32
 
 * [What is `-mpreferred-stack-boundary`?](https://github.com/reruo321/CPP-Self-Study/blob/master/CS/Assembly/GCC/-mpreferred-stack-boundary/README.md)
 
@@ -124,7 +130,7 @@ Also, by tracking `%esp` by `i r` command, we can find the stack grows down from
 
 ![x100retadd](https://github.com/reruo321/OS-Self-Study/assets/48712088/56e6710b-a909-40a1-b06b-adce4367af6a)
 
-    x/100wx $sp-200
+    (gdb) x/100wx $sp-200
 
 (We can also scan the stack by using `x` (examine) command around `%esp`.
 
@@ -165,9 +171,9 @@ After `strcpy`, the memory becomes like two figures above. The return address is
 After `ret`, `%eip` goes to `0x46454443`. Since there is nothing in the address, the program receives "Segmentation fault".
 
 ### 5. Making Payload
-**Payload** of a malicious program is a description to tell the program what to do on a victim's computer. The payload we will use consists of `NOP sleds + Shellcode + Extra bytes`.
+**Payload** of a malicious program is a description to tell the program what to do on a victim's computer. The payload we will use consists of `NOP sled + Shellcode + Extra bytes`.
 
-#### A. NOP Sleds
+#### A. NOP Sled
 
 
 #### B. Shellcode
