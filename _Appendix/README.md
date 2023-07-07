@@ -1,5 +1,5 @@
 # Appendix
-I wrote the document to notify some settings and errors I experienced in OS development.
+I wrote this document to memo some additional things to remember, or notify some settings and errors I experienced in OS development.
 
 ## C/C++
 ### # C: linux/init.h: No such file or directory.
