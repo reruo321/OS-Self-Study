@@ -7,12 +7,21 @@ There are different kinds of link in file system.
 4. Hard Link
 
 ## 1. Shortcut
-**Shortcut** is a file that contains path data. It exists only in Windows.
-In Linux, *symbolic link* is a substitution of it.
+**Shortcut** is a file that contains just path data.
+
+* It can refer to destination via only an absolute path. (No relative path.)
+
+It exists only in Windows, and *symbolic link* is a substitution of it in Linux.
 
 ## 2. Junction
-**Junction** are processed at the server.
+**Junction** is processed at the server.
 
 ## 3. Symbolic Link
-**Symbolic link (soft link)** Although it seems to behave the same as junction,
-it is processed at the client.
+**Symbolic link (soft link)**.
+
+* It can refer to destination via either an absolute or a relative path.
+* Especially POSIX-compliant ones are not files but entries into the inode table.
+* 
+
+ Although it seems to behave the same as junction, it is processed at the client.
+Windows has also supported symbolic link natively under NTFS, since Vista version.
