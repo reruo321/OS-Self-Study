@@ -17,20 +17,21 @@ It is supported only in Windows, and *symbolic link* is a substitution of it in 
 **Junction** is processed at the server.
 
 ## 3. Symbolic Link
-**Symbolic link (soft link)** is a symbolic Linux/Unix link (file-system object in Windows) to point to a file or directory.
+**Symbolic link (soft link)** is a link to point to a file or directory.
 
-While it is supported in Linux, it has been also supported in Windows natively under NTFS, since Vista version.
+In Linux/Unix, it is a pointer. In Windows, it is a file-system object, being supported natively under NTFS since Vista version.
 
-### Symbolic Link vs Shortcut
+### vs Shortcut
 It seems to be the same as shortcut, but actually there are some differences:
 
 * It is a file-system level.
 * Especially POSIX-compliant ones are not files but entries into the inode table.
 * It can refer to destination via either an absolute or a relative path.
 
-### Symbolic Link vs Junction
+### vs Junction
 
-It is also different from junction in these ways.
+It is also different from junction in several ways.
 
 * While junction is processed at the server, symbolic link is done at the client.
 
+## 4. Hard Link
