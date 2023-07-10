@@ -1,5 +1,5 @@
 # Link
-There are different kinds of link in file system. Note that even links with the same name may differ between the OSs.
+There are different kinds of link in file system. Note that even links with the same name may differ between file systems, OS types, and even version releases of the same OS.
 
 1. Shortcut
 2. Junction
@@ -12,31 +12,38 @@ There are different kinds of link in file system. Note that even links with the 
 
 | | Shortcut | Junction | Symbolic Link | Hard Link |
 |:-:|:-:|:-:|:-:|:-:|
-| Type | File | | File-system Level | 
+| Type | File | NTFS<br>File System<br>Object | NTFS<br>File System<br>Object | NTFS<br>File System<br>Object |
 | File Linking | O | X | O | O |
 | Folder Linking | O | O | O | X |
 | Linking across<br>Hard Drivers | O | O<br>(on the same<br>computer) | O | X |
 | Pointing to<br>Non-existent<br>Target | O | O | O | X |
 | Relative Path<br>Support | X | X | O<br>(on the same<br>volume) | X |
 
-* *Soft link* means *junction* in Windows.
-
+### 1. Shortcut
+### 2. Junction
+**Junction(NTFS junction point)** is a pointer to a directory on the local volume.
+### 3. Symbolic Link
+**NTFS symbolic link**
+### 4. Soft Link
+**Soft link** means *junction* in Windows.
+### 5. Hard Link
 
 ## Linux
 | | Shortcut | Junction | Symbolic Link | Hard Link |
 |:-:|:-:|:-:|:-:|:-:|
-| Type | File | | File-system Level | 
+| Type | File | | File-system Level | |
 | Target | | Directory | File<br>Directory | |
 | Supporting OS | Windows | Windows | Windows<br>Linux<br>Unix | Windows<br>Linux |
 
-* *Soft link* means *symbolic link* in Linux.
+### 1. Shortcut
+**Shortcut** which we have seen in Windows is not supported in Linux. Users can either use the similar one - *symbolic link*, or make a shortcut-like thing manually. Usually, Linux *shortcut* means *symbolic link*.
 
-## 1. Shortcut
-**Shortcut** is a file that contains just path data.
+### 2. Junction
+### 3. Symbolic Link
+### 4. Soft Link
+**Soft link** means *symbolic link* in Linux.
+### 5. Hard Link
 
-* It can refer to destination via only an absolute path. (No relative path.)
-
-It is supported only in Windows, and *symbolic link* is a substitution of it in Linux.
 
 ## 2. Junction
 **Junction** is processed at the server.
