@@ -3,8 +3,9 @@ There are different kinds of link in file system. Note that even links with the 
 
 1. Shortcut
 2. Junction
-3. Symbolic Link (Soft Link)
-4. Hard Link
+3. Symbolic Link
+4. Soft Link
+5. Hard Link
 
 ## Windows
 ※ Note: The comparison is specific on NTFS links.
@@ -18,7 +19,7 @@ There are different kinds of link in file system. Note that even links with the 
 | Pointing to<br>Non-existent<br>Target | O | O | O | X |
 | Relative Path<br>Support | X | X | O<br>(on the same<br>volume) | X |
 
-* *Soft link* in Windows refers to *junction*.
+* *Soft link* means *junction* in Windows.
 
 
 ## Linux
@@ -28,7 +29,7 @@ There are different kinds of link in file system. Note that even links with the 
 | Target | | Directory | File<br>Directory | |
 | Supporting OS | Windows | Windows | Windows<br>Linux<br>Unix | Windows<br>Linux |
 
-* *Soft link* in Windows refers to *symbolic link*.
+* *Soft link* means *symbolic link* in Linux.
 
 ## 1. Shortcut
 **Shortcut** is a file that contains just path data.
