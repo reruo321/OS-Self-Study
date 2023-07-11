@@ -20,6 +20,7 @@ There are different kinds of link in file system. Note that even links with the 
 | Relative Path<br>Support | X | X | O<br>(on the same<br>volume) | X |
 
 ### 1. Shortcut
+**Shortcut** is a file that points to a file or directory.
 
 ### 2. Junction
 **Junction(NTFS junction point)** is a pointer to a directory on the local volume. It is processed at the server.
