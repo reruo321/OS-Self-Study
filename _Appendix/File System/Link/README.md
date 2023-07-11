@@ -49,3 +49,9 @@ There are different kinds of link in file system. Note that even links with the 
 **Soft link** means *symbolic link* in Linux.
 ### 5. Hard Link
 **Hard link** also exists in Linux, but only applied to files. (No directories.)
+
+The command
+
+    $ ls -l
+
+on the terminal will show the number of (hard) links to a file/directory, next to the file/directory permission.
