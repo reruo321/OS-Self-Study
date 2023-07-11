@@ -20,12 +20,16 @@ There are different kinds of link in file system. Note that even links with the 
 | Relative Path<br>Support | X | X | O<br>(on the same<br>volume) | X |
 
 ### 1. Shortcut
+
 ### 2. Junction
-**Junction(NTFS junction point)** is a pointer to a directory on the local volume.
+**Junction(NTFS junction point)** is a pointer to a directory on the local volume. It is processed at the server.
+
 ### 3. Symbolic Link
-**NTFS symbolic link**
+**NTFS symbolic link** was introduced in Windows Vista to replace junction points and hard links, to increase compatilibilty with Unix systems. Especially POSIX-compliant ones are not files but entries into the inode table. Also, while junction is processed at the server, symbolic link is done at the client.
+
 ### 4. Soft Link
 **Soft link** means *junction* in Windows.
+
 ### 5. Hard Link
 
 ## Linux
@@ -36,40 +40,12 @@ There are different kinds of link in file system. Note that even links with the 
 | Supporting OS | Windows | Windows | Windows<br>Linux<br>Unix | Windows<br>Linux |
 
 ### 1. Shortcut
-**Shortcut** which we have seen in Windows is not supported in Linux. Users can either use the similar one - *symbolic link*, or make a shortcut-like thing manually. Usually, Linux *shortcut* means *symbolic link*.
+**Shortcut** which we have seen in Windows is not officially supported in Linux. Users can either use the similar one - *symbolic link*, or make a shortcut-like thing manually. Users often uses the term "Linux *shortcut*" to describe *symbolic link*.
 
 ### 2. Junction
+**Junction** is an NTFS specific terminology, so there's no official Linux support. We can use *symbolic link* instead, or install the 3rd-party application to support the junction point.
 ### 3. Symbolic Link
 ### 4. Soft Link
 **Soft link** means *symbolic link* in Linux.
 ### 5. Hard Link
-
-
-## 2. Junction
-**Junction** is processed at the server.
-
-* It is processed at the server.
-* It can point to directory.
-
-## 3. Symbolic Link
-**Symbolic link (soft link)** is a link to point to a file or directory.
-
-In Linux/Unix, it is a pointer. In Windows, it is a file-system object, being supported natively under NTFS since Vista version.
-
-### vs Shortcut
-It seems to be the same as shortcut, but actually there are some differences:
-
-* It is a file-system level.
-* Especially POSIX-compliant ones are not files but entries into the inode table.
-* It can refer to destination via either an absolute or a relative path.
-
-### vs Junction
-
-It is also different from junction in several ways.
-
-* While junction is processed at the server, symbolic link is done at the client.
-
-## 4. Hard Link
-**Hard link**
-
-It also exists in Linux, but only applied to files. (No directories.)
+**Hard link** also exists in Linux, but only applied to files. (No directories.)
