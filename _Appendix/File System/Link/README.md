@@ -22,6 +22,10 @@ There are different kinds of link in file system. Note that even links with the 
 ### 1. Shortcut
 **Shortcut** is a file that points to a file or directory.
 
+![win shortcut](https://github.com/reruo321/OS-Self-Study/assets/48712088/a99f8aa1-45dc-49a8-b8b4-eec2b418a99b)
+
+The figure represents a shortcut of the *Microsoft Edge*, which executable file name is *msedge.exe*.
+
 ### 2. Junction
 **Junction(NTFS junction point)** is a pointer to a directory on the local volume. It is processed at the server.
 
