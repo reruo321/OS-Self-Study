@@ -1,4 +1,4 @@
-# Linux
+# Links in Linux
 
 
 ## 1. Shortcut
