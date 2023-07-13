@@ -19,6 +19,8 @@ There are different kinds of link in file system. Note that even links with the 
 | Pointing to<br>Non-existent<br>Target | O | O | O | X |
 | Relative Path<br>Support | X | X | O<br>(on the same<br>volume) | X |
 
+Microsoft Official Guide for NTFS Links: https://learn.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions
+
 ### 1. Shortcut
 **Shortcut** is a file that points to a file or directory.
 
