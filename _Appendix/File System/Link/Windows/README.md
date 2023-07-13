@@ -31,7 +31,7 @@ I will introduce three of the many ways to create a shortcut briefly.
 
 Open the CMD, and type this command to create a junction point to directory.
 
-    mklink /j "YOUR_LINK" "ORIGINAL_DIRECTORY"
+    mklink /j "YOUR_LINK" "TARGET_DIRECTORY"
 
 ## 3. Symbolic Link
 **NTFS symbolic link** was introduced in Windows Vista to replace junction points and hard links, to increase compatilibilty with Unix systems. Especially POSIX-compliant ones are not files but entries into the inode table. Also, while junction is processed at the server, symbolic link is done at the client.
@@ -39,10 +39,10 @@ Open the CMD, and type this command to create a junction point to directory.
 Open the CMD, and type this command to create a symbolic link to a file/directory.
 
     :: file
-    mklink "YOUR_LINK" "ORIGINAL_FILE"
+    mklink "YOUR_LINK" "TARGET_FILE"
 
     :: directory
-    mklink /d "YOUR_LINK" "ORIGINAL_DIRECTORY"
+    mklink /d "YOUR_LINK" "TARGET_DIRECTORY"
 
 ## 4. Soft Link
 **Soft link** means *junction* in Windows.
@@ -51,4 +51,4 @@ Open the CMD, and type this command to create a symbolic link to a file/director
 
 Open the CMD, and type this command to create a hard link to a file.
 
-    mklink /h "YOUR_LINK" "ORIGINAL_FILE"
+    mklink /h "YOUR_LINK" "TARGET_FILE"
