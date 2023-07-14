@@ -1,5 +1,5 @@
 # Practice 1
-## To Do
+## TODO
 Here are a file "myfile.txt" and a subdirectory "mydir" in a practice directory, "C:\Users\reruo\testdir".
 
 ![beforelink](https://github.com/reruo321/OS-Self-Study/assets/48712088/1084f229-1f99-4505-82ca-c2bc53a895af)
