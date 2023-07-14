@@ -9,6 +9,8 @@ Here are a file "myfile.txt" and a subdirectory "mydir" in a practice directory,
 1. Create shortcuts, junctions, symbolic links, and hard links of "myfile.txt" and "mydir", using the File Explorer and the CMD. If a link type is not suitable for a file or a directory, DO NOT create it!
 2. Display a list of a directory's files and subdirectories using the File Explorer and the CMD.
 
+Note: We will continue to use these things in Practice 2, so keep them all.
+
 ## Hints
 ### Hint 1: What to Link?
 <details>
