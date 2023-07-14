@@ -77,6 +77,8 @@ Type `dir` to display a list of a directory's files and subdirectories.
 
 ![shortmake](https://github.com/reruo321/OS-Self-Study/assets/48712088/4ea4af7f-afbf-432f-8e66-f6b67860a2d4)
 
+(The option says "Create shortcut".)
+
 2. Junction:
 
 ![junction](https://github.com/reruo321/OS-Self-Study/assets/48712088/1d5625c2-d8a2-422b-ab6a-9e20432a700a)
