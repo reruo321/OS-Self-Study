@@ -17,7 +17,7 @@ Here are a file "myfile.txt" and a subdirectory "mydir" in a practice directory,
 | | Shortcut | Junction | Symbolic Link | Hard Link |
 |:-:|:-:|:-:|:-:|:-:|
 | File Linking | O | X | O | O |
-| Folder Linking | O | O | O | X |
+| Directory Linking | O | O | O | X |
 
 We should create total 6 links.
 
@@ -71,7 +71,23 @@ Type `dir` to display a list of a directory's files and subdirectories.
 <details>
   <summary><b>SPOILERS</b></summary>
 
-### 
+1. Shortcut:
+
+![shortmake](https://github.com/reruo321/OS-Self-Study/assets/48712088/4ea4af7f-afbf-432f-8e66-f6b67860a2d4)
+
+3. Junction:
+
+![junction](https://github.com/reruo321/OS-Self-Study/assets/48712088/1d5625c2-d8a2-422b-ab6a-9e20432a700a)
+
+4. Symbolic Link:
+
+![symfile](https://github.com/reruo321/OS-Self-Study/assets/48712088/f85b0c19-c65f-46d3-aec9-388b616dfcb6)
+
+![symdir](https://github.com/reruo321/OS-Self-Study/assets/48712088/28c30b16-779a-438b-844b-3e041a5d7354)
+
+5. Hard Link:
+
+![hard](https://github.com/reruo321/OS-Self-Study/assets/48712088/3a93553b-6090-4eff-815c-3e938e2d34ae)
 
 ### Result
 
