@@ -1,6 +1,6 @@
 # Practice 2
 We made several kinds of Windows (NTFS) links from Practice 1.
-Now we will see how links would change if you make some changes on the files.
+Now we will see how links would change if you make some changes.
 You can guess the answers of the practice by checking [this table](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/File%20System/Link/Windows#links-in-windows)!
 
 ## TODO
