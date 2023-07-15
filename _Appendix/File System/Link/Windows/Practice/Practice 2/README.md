@@ -14,8 +14,24 @@ You can guess the answers of the practice by checking [this table](https://githu
 2. See what happened to each link.
 
 ### C. Removing Targets
-1. Remove the targets, "myfile.txt" and "mydir".
+1. Put the targets, "myfile.txt" and "mydir", into the "Recycle Bin".
 2. See what happened to each link.
+3. Completely delete the targets by emptying the "Recycle Bin".
+4. See the links again.
+
+### D. Recovering Targets
+1. Create "myfile.txt" and "mydir" (with "123.txt") in the practice directory, "testdir" again.
+2. Type something in the "myfile.txt". Text should be different from the former!
+3. See what happened to each link.
+
+### E. Moving Links
+1. Remove all links, and create them again in "testdir".
+2. Move all links to the "Desktop", or other directory.
+3. Open "myfile.txt" and change the text.
+4. Create the second random file in "mydir". I named the file as "456.txt".
+5. See what happened to all targets and all links.
+6. Put all links into "testdir" again.
+7. See what happened to all things. If there were any change, which one made it?
 
 ## Result
 <details><summary>SPOILERS</summary>
