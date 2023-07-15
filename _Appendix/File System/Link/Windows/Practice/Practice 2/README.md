@@ -41,23 +41,36 @@ You can guess the answers of the practice by checking [this table](https://githu
 
 ![shortf see](https://github.com/reruo321/OS-Self-Study/assets/48712088/25a5981f-621e-4b0d-896f-bdbd2ec3eb83)
 
-Executing the shortcut opens its target, "myfile.txt".
+![shortf move before pro](https://github.com/reruo321/OS-Self-Study/assets/48712088/eb10653c-8798-405a-b7c8-72c8aef6491d)
+
+Executing the shortcut opens its target, "myfile.txt". We can check the target from "Properties" of the shortcut.
 
 ![shortf move](https://github.com/reruo321/OS-Self-Study/assets/48712088/316ca9b9-b0fb-46e8-b324-4bea32f948a4)
 
-After moving its target "myfile.txt", the new target became "hardlink.txt".
+![shortf move after pro](https://github.com/reruo321/OS-Self-Study/assets/48712088/3bbf0220-f5ea-4283-9ea2-d098a2a9da71)
+
+After moving its target "myfile.txt", nothing happens. However, if you execute the shortcut, the new target becomes "hardlink.txt"!
 
 ![shortf move](https://github.com/reruo321/OS-Self-Study/assets/48712088/bc92fb50-0eae-4a5f-ad17-ecd8e525c420)
 
-After deleting its target "myfile.txt", the new target became "hardlink.txt".
+![shortf move after pro](https://github.com/reruo321/OS-Self-Study/assets/48712088/5478ef4d-a4cd-42bf-adcb-e121cabfae3e)
+
+After deleting its target "myfile.txt", nothing happens. However, if you execute the shortcut, the new target becomes "hardlink.txt"!
 
 ![shortf after](https://github.com/reruo321/OS-Self-Study/assets/48712088/e79f28b7-9fb8-442b-a680-a9f7608b9ef8)
 
-Even if "myfile.txt" is created again, the shortcut still points to "hardlink.txt".
+Even if "myfile.txt" is created again, the shortcut still points to "hardlink.txt"!
 
 ![shortf selfmove](https://github.com/reruo321/OS-Self-Study/assets/48712088/90a8085a-0c24-4fbf-ac1a-ac53f7b34287)
 
 Although the shortcut is moved, it still points to "myfile.txt".
+
+#### Results without Hard Link
+![shortf move no hardlink](https://github.com/reruo321/OS-Self-Study/assets/48712088/249247d6-51b4-474d-b753-a8d1fffb52db)
+
+If there is no hard link of "myfile.txt", the shortcut will open its target in almost situations.
+
+When its target is moved to the "Recycle Bin", an error message will pop up, and it will ask whether you recover the target, or delete the shortcut. When its target is completely deleted, another error message will pop up, and it will ask whether you delete the shortcut or not.
 
 </details>
 
@@ -145,23 +158,25 @@ When you move the junction from the "Desktop" to "testdir", "mydir" has "123.txt
 
 <details><summary>SPOILERS</summary>
 
-Executing the link opens its target, "myfile.txt".
+![symf see](https://github.com/reruo321/OS-Self-Study/assets/48712088/96a7ad22-d294-4cdb-ad3b-a01047145c2f)
 
+Executing the symbolic link opens its target, "myfile.txt".
 
+![symf move](https://github.com/reruo321/OS-Self-Study/assets/48712088/96109449-54e5-47db-ac0d-8fcc4aa072ce)
 
-After moving its target "myfile.txt", the new target became "hardlink.txt".
+After moving its target "myfile.txt", the symbolic link does not work at all.
 
+![symf move](https://github.com/reruo321/OS-Self-Study/assets/48712088/3521405b-76ad-4251-9078-64dd9caa1d7d)
 
+After deleting its target "myfile.txt", the symbolic link does not work at all.
 
-After deleting its target "myfile.txt", the new target became "hardlink.txt".
+![symf after](https://github.com/reruo321/OS-Self-Study/assets/48712088/87795b11-065c-4138-9dcd-424dc0112bf4)
 
+When "myfile.txt" is created again, the symbolic link points to it.
 
+![symf selfmove](https://github.com/reruo321/OS-Self-Study/assets/48712088/d5e1dc3a-2ec2-49fa-923a-b15d09b096f4)
 
-Even if "myfile.txt" is created again, the link still points to "hardlink.txt".
-
-
-
-Although the link is moved, it still points to "myfile.txt".
+If the symbolic link is moved, it does not work at all.
 
 </details>
 
@@ -169,23 +184,25 @@ Although the link is moved, it still points to "myfile.txt".
 
 <details><summary>SPOILERS</summary>
 
-Executing the link opens its target, "myfile.txt".
+![symd see](https://github.com/reruo321/OS-Self-Study/assets/48712088/44406dff-d32f-4008-897a-f4849be0dc36)
 
+Executing the symbolic link opens "symlink_dir". Except the directory, it looks the same as "mydir".
 
+![symd move](https://github.com/reruo321/OS-Self-Study/assets/48712088/0a7de156-c4fc-40ab-ac9e-7530d5589d2b)
 
-After moving its target "myfile.txt", the new target became "hardlink.txt".
+After moving its target "mydir", the symbolic link becomes unavailable and an error message pops up.
 
+![symd move](https://github.com/reruo321/OS-Self-Study/assets/48712088/00149e2b-bddd-4f0f-8e78-23c8cc536efe)
 
+After deleting its target "mydir", the symbolic link becomes unavailable and an error message pops up.
 
-After deleting its target "myfile.txt", the new target became "hardlink.txt".
+![symd see](https://github.com/reruo321/OS-Self-Study/assets/48712088/88b3a7bf-c62b-456f-a055-1d104c53a873)
 
+When "myfile.txt" is created again, the symbolic link points to it.
 
+![symd selfmove](https://github.com/reruo321/OS-Self-Study/assets/48712088/a3998d17-d83c-490e-be7a-b3b3c5d62c9a)
 
-Even if "myfile.txt" is created again, the link still points to "hardlink.txt".
-
-
-
-Although the link is moved, it still points to "myfile.txt".
+If the symbolic link is moved, it becomes unavailable and an error message pops up.
 
 </details>
 
@@ -193,22 +210,28 @@ Although the link is moved, it still points to "myfile.txt".
 
 <details><summary>SPOILERS</summary>
 
-Executing the link opens its target, "myfile.txt".
+※ When the hard link and its target shares the contents, it means that modifying either of them affects both of them!
 
+![hard see](https://github.com/reruo321/OS-Self-Study/assets/48712088/4351bfef-c20c-4cf8-b4dc-08280f821cac)
 
+Executing the hard link opens "hardlink.txt". It shares the contents with "myfile.txt".
 
-After moving its target "myfile.txt", the new target became "hardlink.txt".
+![hard move](https://github.com/reruo321/OS-Self-Study/assets/48712088/311cc143-514f-409e-bcec-501686209eb9)
 
+Even if moving "myfile.txt", the hard link still opens "hardlink.txt", sharing the contents with "myfile.txt".
 
+![hard move](https://github.com/reruo321/OS-Self-Study/assets/48712088/22366fbe-6f6d-44d6-8c74-fe38fbe5349f)
 
-After deleting its target "myfile.txt", the new target became "hardlink.txt".
+Even if you put "myfile.txt" into the "Recycle Bin", the hard link still opens "hardlink.txt", keeping its contents. It also shares the contents with "myfile.txt". Therefore, if you modify "hardlink.txt" and then recover "myfile.txt", you can see their contents are the same!
 
+Otherwise, completely deleting "myfile.txt" disconnects the contents sharing of "hardlink.txt". It keeps its contents anyway.
 
+![hard after](https://github.com/reruo321/OS-Self-Study/assets/48712088/a4a53403-30c9-44b3-9682-f99091b3bd4c)
 
-Even if "myfile.txt" is created again, the link still points to "hardlink.txt".
+Even if you create "myfile.txt" again, the hard link still opens "hardlink.txt". However, it does not share its contents with the new "myfile" anymore!
 
+![hard selfmove](https://github.com/reruo321/OS-Self-Study/assets/48712088/6fd343d1-ceb9-455f-b800-d7c18caaf5ed)
 
-
-Although the link is moved, it still points to "myfile.txt".
+Even if the hard link is moved, it still opens "hardlink.txt", sharing the contents with "myfile.txt".
 
 </details>
