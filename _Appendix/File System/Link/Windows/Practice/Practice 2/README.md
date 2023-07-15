@@ -19,6 +19,22 @@ You can guess the answers of the practice by checking [this table](https://githu
 
 ## Result
 <details><summary>SPOILERS</summary>
+### 1-a. Shortcut - File
+![shortf see](https://github.com/reruo321/OS-Self-Study/assets/48712088/25a5981f-621e-4b0d-896f-bdbd2ec3eb83)
 
+### 1-b. Shortcut - Directory
+![shortd see](https://github.com/reruo321/OS-Self-Study/assets/48712088/a9b759d5-ba6a-4d08-900c-afd53f864674)
+
+### 2. Junction
+![junc see](https://github.com/reruo321/OS-Self-Study/assets/48712088/e4c378d7-6c6f-436f-82fb-d3fee93eb48e)
+
+#### 3-a. Symbolic Link - File
+![symf see](https://github.com/reruo321/OS-Self-Study/assets/48712088/45db1d20-38bf-4a2a-a976-bde3f7f39e10)
+
+#### 3-b. Symbolic Link - Directory
+![symd see](https://github.com/reruo321/OS-Self-Study/assets/48712088/616b545e-c974-4c2b-94d5-f5e01409e4d9)
+
+#### 4. Hard Link
+![hard see](https://github.com/reruo321/OS-Self-Study/assets/48712088/34b33666-dc6d-43c4-81c2-c9e374fc7304)
 
 </details>
