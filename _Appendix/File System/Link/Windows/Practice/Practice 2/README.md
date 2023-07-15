@@ -20,7 +20,10 @@ You can guess the answers of the practice by checking [this table](https://githu
 ## Result
 <details><summary>SPOILERS</summary>
 ### 1-a. Shortcut - File
+
 ![shortf see](https://github.com/reruo321/OS-Self-Study/assets/48712088/25a5981f-621e-4b0d-896f-bdbd2ec3eb83)
+
+
 
 ### 1-b. Shortcut - Directory
 ![shortd see](https://github.com/reruo321/OS-Self-Study/assets/48712088/a9b759d5-ba6a-4d08-900c-afd53f864674)
