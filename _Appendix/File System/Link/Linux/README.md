@@ -1,11 +1,13 @@
 # Links in Linux
-There are mainly two types of link in Linux: **Symbolic Link** and **Hard Link**.
+There are mainly two types of link in Linux: **Symbolic Link (Soft Link)** and **Hard Link**.
 
 || Symbolic Link | Hard Link |
 |:-:|:-:|:-:|
 | Synonym | Soft Link<br>Linux Shortcut | - |
 | File Linking | O | O |
 | Directory Linking | O | X |
+
+![softhardlink](https://github.com/reruo321/OS-Self-Study/assets/48712088/5abaa971-1c2a-45cf-b26e-3c54109b39cf)
 
 ## 1. Shortcut
 **Shortcut** which we have seen in Windows is not officially supported in Linux. Users can either use the similar one - *symbolic link*, or make a shortcut-like thing manually. Users often uses the term "Linux *shortcut*" to describe the *symbolic link*.
