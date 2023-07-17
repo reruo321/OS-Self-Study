@@ -45,7 +45,7 @@ Open the CMD, and type this command to create a symbolic link to a file/director
     mklink /d "YOUR_LINK" "TARGET_DIRECTORY"
 
 ## 4. Soft Link
-**Soft link** means *junction* in Windows.
+**Soft link** means either *junction* or *symbolic link* in Windows.
 
 ## 5. Hard Link
 **Hard link** is the file-system representation of a file by which more than one path references a single file in the same volume. If there is any change on hard links or their target, anyone who access the target through the links can see the change being reflected.
