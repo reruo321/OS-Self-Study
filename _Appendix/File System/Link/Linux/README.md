@@ -34,5 +34,7 @@ on the terminal will show the files in a long listing format, and
 
 will show information of a directory, "MY_DIRECTORY". Here, we can see the number of hard links to the file/directory, next to the file/directory permission!
 
+(See [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission) for understanding "file permission".)
+
 ### Read Together
 * [Why are hard links not allowed for directories?](https://askubuntu.com/questions/210741/why-are-hard-links-not-allowed-for-directories)
