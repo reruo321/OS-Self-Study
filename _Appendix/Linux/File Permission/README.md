@@ -59,3 +59,7 @@ Divide it into four parts: *d*, *rwx*, *rwx*, *r-x*.
 3. *rwx*: Permission for **Group owner**: Read O / Write O / Execute O
 4. *r-x*: Permission for **Others**: Read O / Write X / Execute O
    
+## Special File Permissions
+### `setuid` Permission
+### `setgid` Permission
+### Sticky Bit
