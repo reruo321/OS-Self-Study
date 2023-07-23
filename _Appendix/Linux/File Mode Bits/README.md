@@ -1,20 +1,25 @@
 # File Mode Bits
 There are two parts of the file mode bits:
 
-A. File Permission Bits - Controls ordinary access to the file.
-B. Special Mode Bits - Affects only some files.
+1. File Permission Bits
+2. Special Mode Bits
 
-Please read [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission) together to understand how we can check them!
+Please read [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission) together to understand the file permissions!
 
-## A. File Permission Bits
-A user can have three kinds of permissions for a file.
+## 1. File Permission Bits
+A user can have three kinds of permissions for a file. They are used to control ordinary access to the file.
 
-1. *read* permission
-2. *write* permission
-3. *execute* permission
+* *read* permission
+* *write* permission
+* *execute* permission
 
-## B. Special Mode Bits
+## 2. Special Mode Bits
+These three special components of the file mode bits affect only executable files (programs), and on most systems, directories.
 
-1. set-user-ID bit (setuid bit)
-2. set-group-ID bit (setgid bit)
-3. Sticky bit
+* set-user-ID bit (setuid bit): On execution, set the process's EUID to file's EUID.
+* set-group-ID bit (setgid bit): On execution, set the process's EGID to file's EGID.
+* Sticky bit: 
+
+## Read Together
+* [File Permission](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission)
+* (External Link) [Mode Structure](https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html)
