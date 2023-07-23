@@ -9,8 +9,12 @@ Please read [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix
 ## A. File Permission Bits
 A user can have three kinds of permissions for a file.
 
-1. Permission to ***r**ead* the file
-2. Permission to ***w**rite* to the file
-3. Permission to *e**x**ecute* the file
+1. *read* permission
+2. *write* permission
+3. *execute* permission
 
 ## B. Special Mode Bits
+
+1. set-user-ID bit (setuid bit)
+2. set-group-ID bit (setgid bit)
+3. Sticky bit
