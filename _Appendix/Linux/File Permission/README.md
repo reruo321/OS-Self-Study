@@ -58,7 +58,11 @@ Divide it into four parts: *d*, *rwx*, *rwx*, *r-x*.
 2. *rwx*: Permission for **User owner**: Read O / Write O / Execute O
 3. *rwx*: Permission for **Group owner**: Read O / Write O / Execute O
 4. *r-x*: Permission for **Others**: Read O / Write X / Execute O
-   
+
+## Changing Permissions
+* `chmod`
+* 
+
 ## Special File Permissions
 ### `setuid` Permission
 ### `setgid` Permission
