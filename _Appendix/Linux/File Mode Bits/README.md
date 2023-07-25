@@ -18,7 +18,7 @@ These three special components of the file mode bits affect only executable file
 
 * set-user-ID bit (setuid bit): On execution, set the process's EUID to file's EUID.
 * set-group-ID bit (setgid bit): On execution, set the process's EGID to file's EGID.
-* Sticky bit: 
+* Sticky bit: Gives permission to move or delete a file in the directory, only for the file owner. In other words, a user must have write permission for the directory + be the owner of the file, to move or delete the file.
 
 ## Read Together
 * [File Permission](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission)
