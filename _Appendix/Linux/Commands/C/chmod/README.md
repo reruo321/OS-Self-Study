@@ -33,10 +33,28 @@ TODO: Using the absolute mode of `chmod`, set permissions of a file "example_one
   2. Grant the *read* permission for group owner.
   3. Grant the *read* permission for others.
 
+Let's find the answer step by step.
+
+1. User owner: 4 (read) + 2 (write) + 1 (execute) = 7
+2. Group owner: 4 (read) = 4
+3. Others: 4 (read) = 4
+
+Therefore, you should type the command in the terminal like this.
+
+    $ chmod 744 example_one
+
 #### Example 2
-TODO: Using the absolute mode of `chmod`, set permissions of a file "example_two" as "-rwxrw-r--".
+TODO: Using the absolute mode of `chmod`, set permissions of a file "example_two" as "-rwxr-----".
 
+Split the final file permissions, and finding the answer will be a piece of cake!
 
+1. User owner: "rwx", 4 (read) + 2 (write) + 1 (execute) = 7
+2. Group owner: "r--", 4 (read) = 4
+3. Others: "---", No permission, 0
+
+Therefore, you should type the command in the terminal like this.
+
+    $ chmod 740 example_two
 
 ## 2. Symbolic Mode
 **Symbolic mode** uses combinations of letters and symbols to add or remove permissions.
