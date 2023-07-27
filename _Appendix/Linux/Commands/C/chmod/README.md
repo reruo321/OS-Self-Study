@@ -83,6 +83,8 @@ Therefore, you should type the command in the terminal like this.
      * `r`: Read
      * `w`: Write
      * `x`: Execute
+     * `l`: [Mandatory Locking](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Locking). The file must be a regular file with "set-group-ID bit ON + group execute permission OFF".
+     * `s`:
 
 * The octal digits individually represent the permissions for "user owner", "group owner", and "others".
 * You can decide each digit value by following these rules:
@@ -93,3 +95,4 @@ Therefore, you should type the command in the terminal like this.
 
 ## Read Together
 * (External Link) [Changing File Permissions](https://docs.oracle.com/cd/E19504-01/802-5750/6i9g464pv/index.html)
+* [File Locking](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Locking)
