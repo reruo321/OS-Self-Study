@@ -13,7 +13,13 @@ It will work only if the processes sharing the same file are cooperating by expl
 A process which is not cooperating can ignore the lock, and it is free to read, write, execute, or even delete the file via system calls.
 
 ## 2. Mandatory Locking
-**Mandatory locking**
+**Mandatory locking** is a lock in which the OS enforces the file locking. Unlike advisory locking, it does not require any cooperation between processes sharing the same file.
+
+Warning: The Linux implementation of mandatory locking is unreliable. ([Reference](https://man7.org/linux/man-pages/man2/fcntl.2.html))
+### Setting
+* [Using `chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod)
 
 ## Read Together
 * (External Link) [Introduction to File Locking in Linux](https://www.baeldung.com/linux/file-locking)
+* (External Link) [fcntl(2) — Linux manual page](https://man7.org/linux/man-pages/man2/fcntl.2.html)
+* [`chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod)
