@@ -17,6 +17,7 @@ See [this website](https://docs.oracle.com/cd/E19504-01/802-5750/6i9g464pv/index
     (Example)
     $ chmod 754 myfile
 
+* Only the current owner of the file or superuser can use the command to change file permissions.
 * Each permission set is represented as three octal digits.
 * The octal digits individually represent the permissions for "user owner", "group owner", and "others".
 * You can decide each digit value by following these rules:
@@ -58,6 +59,37 @@ Therefore, you should type the command in the terminal like this.
 
 ## 2. Symbolic Mode
 **Symbolic mode** uses combinations of letters and symbols to add or remove permissions.
+
+    (Syntax)
+    $ chmod [symbolic_mode who][symbolic_mode operator][symbolic_mode permission] [target file/directory]
+    
+    (Example)
+    $ chmod a+r myfile
+    $ chmod o-x myfile
+    $ chmod g=rwx myfile
+
+* Only the current owner of the file or superuser can use the command to change file permissions.
+* Three functions are needed: *Who*, *Operator*, and *Permission*.
+  1. ***Who***: Specifies whose permissions are changed.
+     * `u`: User Owner
+     * `g`: Group Owner
+     * `o`: Others
+     * `a`: All
+  2. ***Operator***: Specifies the operation to perform.
+     * `=`: Assign
+     * `+`: Add
+     * `-`: Remove
+  3. ***Permission***: Specifies what permissions are changed.
+     * `r`: Read
+     * `w`: Write
+     * `x`: Execute
+
+* The octal digits individually represent the permissions for "user owner", "group owner", and "others".
+* You can decide each digit value by following these rules:
+  1. The initial value is 0, which means no permission will be granted for the user.
+  2. To grant the *read* permission, add 4.
+  3. To grant the *write* permission, add 2.
+  4. To grant the *execute* permission, add 1.
 
 ## Read Together
 * (External Link) [Changing File Permissions](https://docs.oracle.com/cd/E19504-01/802-5750/6i9g464pv/index.html)
