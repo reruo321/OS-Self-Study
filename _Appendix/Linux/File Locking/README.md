@@ -8,7 +8,7 @@ Two kinds of file locks are supported in Linux.
 * Mandatory Locking
 
 ## 1. Advisory Locking
-**Advisory locking** is a lock in which the OS keeps track of the locks, but does not enforce them.
+**Advisory locking** is a lock in which the kernel keeps track of the locks, but does not enforce them.
 It will work only if the processes sharing the same file are cooperating by explicitly acquiring locks.
 A process which is not cooperating can ignore the lock, and it is free to read, write, execute, or even delete the file via system calls.
 
@@ -16,7 +16,7 @@ A process which is not cooperating can ignore the lock, and it is free to read, 
 If a record lock is not mandatory, it must be advisory. 
 
 ## 2. Mandatory Locking
-**Mandatory locking** is a lock in which the OS enforces the file locking. Unlike advisory locking, it does not require any cooperation between processes sharing the same file.
+**Mandatory locking** is a lock in which the kernel enforces the file locking. Unlike advisory locking, it does not require any cooperation between processes sharing the same file.
 
 Warning: The Linux implementation of mandatory locking is unreliable. ([Reference](https://man7.org/linux/man-pages/man2/fcntl.2.html))
 ### Setting
