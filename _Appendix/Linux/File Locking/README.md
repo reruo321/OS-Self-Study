@@ -13,14 +13,14 @@ It will work only if the processes sharing the same file are cooperating by expl
 A process which is not cooperating can ignore the lock, and it is free to read, write, execute, or even delete the file via system calls.
 
 ### Setting
-If a record lock is not mandatory, it must be advisory. 
+If a record lock is not mandatory, it must be advisory. If a file "set-group-ID bit OFF" OR "Group execute permission ON", the lock is advisory.
 
 ## 2. Mandatory Locking
 **Mandatory locking** is a lock in which the kernel enforces the file locking. Unlike advisory locking, it does not require any cooperation between processes sharing the same file.
 
 Warning: The Linux implementation of mandatory locking is unreliable. ([Reference](https://man7.org/linux/man-pages/man2/fcntl.2.html))
 ### Setting
-* [Using `chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod). The file must be a regular file with "set-group-ID bit ON + group execute permission OFF" for mandatory locks, or the record locks will be advisory.
+* [Using `chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod). The file must be a regular file with "set-group-ID bit ON" AND "Group execute permission OFF" for mandatory locks, or the record locks will be advisory.
 
 ## Read Together
 * (External Link) [Introduction to File Locking in Linux](https://www.baeldung.com/linux/file-locking)
