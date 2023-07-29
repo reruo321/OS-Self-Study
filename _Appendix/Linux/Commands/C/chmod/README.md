@@ -1,5 +1,5 @@
 # `chmod`
-`chmod` changes the file mode bits of each given file according to mode.
+`chmod` (abbreviation of **ch**ange **mod**e) changes the file mode bits of each given file according to mode.
 
 Set permissions in either of these two modes:
 
@@ -83,8 +83,11 @@ Therefore, you should type the command in the terminal like this.
      * `r`: Read
      * `w`: Write
      * `x`: Execute
-     * `l`: [Mandatory Locking](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Locking). The file must be a regular file with "set-group-ID bit ON + group execute permission OFF".
-     * `s`:
+     * `l`: [Mandatory Locking](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Locking). The file must be a regular file with "`setgid` bit ON" AND "group execute permission OFF".
+     * `s`: "`setuid` is ON" OR "`setgid` is ON".
+     * `S`: "`setuid` is ON" AND "user execution bit is OFF". This is a kind of alert for perhaps wrong setting, because `setuid` is almost useless for an inexecutable file.
+     * `t`: "Sticky bit is ON" AND "execution bit for others is ON".
+     * `T`: "Sticky bit is ON" AND "execution bit for others is OFF".
 
 * The octal digits individually represent the permissions for "user owner", "group owner", and "others".
 * You can decide each digit value by following these rules:
@@ -95,4 +98,7 @@ Therefore, you should type the command in the terminal like this.
 
 ## Read Together
 * (External Link) [Changing File Permissions](https://docs.oracle.com/cd/E19504-01/802-5750/6i9g464pv/index.html)
+* [File Mode Bits](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Mode%20Bits)
+* [File Permission in Linux](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission)
 * [File Locking](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Locking)
+
