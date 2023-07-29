@@ -84,10 +84,10 @@ Therefore, you should type the command in the terminal like this.
      * `w`: Write
      * `x`: Execute
      * `l`: [Mandatory Locking](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Locking). The file must be a regular file with "`setgid` bit ON" AND "group execute permission OFF".
-     * `s`: "`setuid` is ON" OR "`setgid` is ON".
-     * `S`: "`setuid` is ON" AND "user execution bit is OFF". This is a kind of alert for perhaps wrong setting, because `setuid` is almost useless for an inexecutable file.
-     * `t`: "Sticky bit is ON" AND "execution bit for others is ON".
-     * `T`: "Sticky bit is ON" AND "execution bit for others is OFF".
+     * `s`: "`setuid` is ON" or "`setgid` is ON".
+     * `S`: "`setuid` is ON" and "user execution bit is OFF". This is a kind of alert for perhaps wrong setting, because `setuid` is almost useless for an inexecutable file.
+     * `t`: "Sticky bit is ON" and "execution bit for others is ON".
+     * `T`: "Sticky bit is ON" and "execution bit for others is OFF".
 
 ### Examples
 #### Example 1
