@@ -28,11 +28,11 @@ See [this website](https://docs.oracle.com/cd/E19504-01/802-5750/6i9g464pv/index
 
 ### Examples
 #### Example 1
-TODO: Using the absolute mode of `chmod`, set permissions of a file "example_one" like this:
+TODO: Using the absolute mode of `chmod`, set permissions of a file "abs_one" like this:
 
-  1. Grant the *read*, *write*, and *execute* permissions for user owner.
-  2. Grant the *read* permission for group owner.
-  3. Grant the *read* permission for others.
+  1. Assign the *read*, *write*, and *execute* permissions to user owner.
+  2. Assign the *read* permission to group owner.
+  3. Assign the *read* permission to others.
 
 Let's find the answer step by step.
 
@@ -42,10 +42,10 @@ Let's find the answer step by step.
 
 Therefore, you should type the command in the terminal like this.
 
-    $ chmod 744 example_one
+    $ chmod 744 abs_one
 
 #### Example 2
-TODO: Using the absolute mode of `chmod`, set permissions of a file "example_two" as "-rwxr-----".
+TODO: Using the absolute mode of `chmod`, set permissions of a file "abs_two" as "-rwxr-----".
 
 Split the final file permissions, and finding the answer will be a piece of cake!
 
@@ -55,7 +55,7 @@ Split the final file permissions, and finding the answer will be a piece of cake
 
 Therefore, you should type the command in the terminal like this.
 
-    $ chmod 740 example_two
+    $ chmod 740 abs_two
 
 ## 2. Symbolic Mode
 **Symbolic mode** uses combinations of letters and symbols to add or remove permissions.
@@ -89,12 +89,64 @@ Therefore, you should type the command in the terminal like this.
      * `t`: "Sticky bit is ON" AND "execution bit for others is ON".
      * `T`: "Sticky bit is ON" AND "execution bit for others is OFF".
 
-* The octal digits individually represent the permissions for "user owner", "group owner", and "others".
-* You can decide each digit value by following these rules:
-  1. The initial value is 0, which means no permission will be granted for the user.
-  2. To grant the *read* permission, add 4.
-  3. To grant the *write* permission, add 2.
-  4. To grant the *execute* permission, add 1.
+### Examples
+#### Example 1
+TODO: Using the symbolic mode of `chmod`, set permissions of a file "sym_one" like this:
+
+  1. Assign the *read*, *write*, and *execute* permissions to user owner.
+  2. Assign the *read* permission to group owner.
+  3. Assign the *read* permission to others.
+
+Let's find the answer step by step.
+
+1. User owner: r (read), w (write), x (execute)
+2. Group owner: r (read)
+3. Others: r (read)
+
+Therefore, you should type the command in the terminal like this.
+
+    $ chmod u=rwx, go=r sym_one
+
+#### Example 2
+TODO: Using the symbolic mode of `chmod`, set permissions of a file "sym_two" like this:
+
+  1. Add the *execute* permission to user owner.
+  2. Remove the *write* and *execute* permission from others.
+
+Let's find the answer step by step.
+
+1. User owner: +x
+2. Others: -wx
+
+Therefore, you should type the command in the terminal like this.
+
+    $ chmod u+x, o-wx sym_two
+
+#### Example 3
+TODO: Using the symbolic mode of `chmod`, set permissions of a file "sym_three" like this:
+
+  1. Remove the *execute* permission from all users.
+
+Let's find the answer right now!
+
+1. All: -x
+
+Therefore, you should type the command in the terminal like this.
+
+    $ chmod a-x sym_three
+
+#### Example 4
+TODO: Using the absolute mode of `chmod`, change permissions of a file "sym_two" from "-rw-rw-rw-" to "-rwxr--r--".
+
+Let's find the answer step by step.
+
+1. User owner: +x
+2. Group owner: -w
+3. Others: -w
+
+Therefore, you should type the command in the terminal like this.
+
+    $ chmod u+x, go-w sym_four
 
 ## Read Together
 * (External Link) [Changing File Permissions](https://docs.oracle.com/cd/E19504-01/802-5750/6i9g464pv/index.html)
