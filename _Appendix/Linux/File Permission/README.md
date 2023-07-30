@@ -17,9 +17,9 @@ p.s. If you want to see long listing of a directory "MY_DIRECTORY" without other
 ## How to View
 ![drawpermission](https://github.com/reruo321/OS-Self-Study/assets/48712088/8863ddef-5a3d-4b26-9262-e47e9432508b)
 
-The system validates a user's permissions from left to right. For example, if one is the user that owns the file, his permissions is granted as "user owner"'s, and no further checks will be done. If not, it checks his group membership. If he is not a "group owner" either, he gets "others" permissions.
+Divide the permissions into 4 parts: Each part has 1 / 3 / 3 / 3 character(s). To understand what alphabets in the permissions mean, see alphabet symbols from [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod#2-symbolic-mode) together. An alphabet symbol shows available permission for a user. For example, if the 5th ~ 7th characters in the permissions are `r-x`, (Think about `-XXXr-xXXX` where X is a random symbol.) "group owner" has the *read* and *execute* permissions on the file. However, since there is no *w*, she does not have the *write* permission.
 
-The 1st permission **r** is *read*, the 2nd **w** is *write*, and the 3rd **x** is *execute*. Omitted alphabet means no permission to do it. For instance, *r-x* means a user has **r**ead permission and e**x**ecute permission, but no **w**rite one.
+The system validates a user's permissions from left to right. If one is the user that owns the file, his permissions is granted as "user owner"'s, and no further checks will be done. If not, it checks his group membership. If he is not a "group owner" either, he gets "others" permissions.
 
 ### Examples
 ![lsl](https://github.com/reruo321/OS-Self-Study/assets/48712088/2f6ff73d-61a5-4d54-af5c-d3094ea7a209)
@@ -63,7 +63,5 @@ Divide it into four parts: *d*, *rwx*, *rwx*, *r-x*.
 * `chmod`
 * 
 
-## Special File Permissions
-### `setuid` Permission
-### `setgid` Permission
-### Sticky Bit
+## Read Together
+* [`chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod)
