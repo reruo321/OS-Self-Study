@@ -60,8 +60,8 @@ Divide it into four parts: *d*, *rwx*, *rwx*, *r-x*.
 4. *r-x*: Permission for **Others**: Read O / Write X / Execute O
 
 ## Changing Permissions
-* `chmod`
-* 
+* [`chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod)
+* `chown`
 
 ## Read Together
 * [`chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod)
