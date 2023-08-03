@@ -16,6 +16,8 @@ There are three kinds of user ID defined for a process in Linux OS.
 ### 2. Effective User ID
 **Effective User ID** is an ID which is normally the same as *Real User ID*, but can be changed to give files accessing privilege to a user, which files can be only accessed by a privileged user. (Example: *root*)
 
+#### EUID in `passwd`
+
 ### 3. Saved User ID
 
 ## Group ID
