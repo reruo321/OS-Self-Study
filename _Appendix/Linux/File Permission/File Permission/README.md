@@ -64,5 +64,4 @@ Divide it into four parts: *d*, *rwx*, *rwx*, *r-x*.
 * `chown`
 
 ## Read Together
-* [File Mode Bits](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Mode%20Bits)
 * [`chmod`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/C/chmod)
