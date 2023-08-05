@@ -21,5 +21,4 @@ These three special components of the file mode bits affect only executable file
 * **Sticky bit**: Gives permission to move or delete a file in the directory, only for the file owner. If a user want to move or delete a file, she must have *write* permission for the directory + be the owner of the file.
 
 ## Read Together
-* [File Permission](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission)
 * (External Link) [Mode Structure](https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html)
