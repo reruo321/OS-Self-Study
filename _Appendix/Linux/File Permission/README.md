@@ -1,6 +1,6 @@
 # File Permission
 
-We will discuss the file permission into two parts:
+We will discuss the file permission mainly into two parts:
 
 1. [**File Mode Bits**](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission/File%20Mode%20Bits): What permissions or permission behavior they can change?
 2. [**File Permission**](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/File%20Permission/File%20Permission): How do we see or change (1) *File Mode Bits* in Linux?
