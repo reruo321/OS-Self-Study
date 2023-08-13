@@ -18,7 +18,7 @@ We can know it by using a command, `logname`.
     $ logname
 
 ### 2. Effective User ID
-**Effective User ID** is an ID which is normally the same as *Real User ID*, but can be changed to give files accessing privilege to a user, which files can be only accessed by a privileged user. (Example: *root*)
+**Effective User ID(EUID)** is an ID which is normally the same as *Real User ID*, but can be changed to give files accessing privilege to a user, which files can be only accessed by a privileged user. (Example: *root*)
 
 We can know it by using a command, `whoami`.
 
