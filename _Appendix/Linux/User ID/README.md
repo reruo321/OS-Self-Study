@@ -18,11 +18,18 @@ We can know it by using a command, `logname`.
     $ logname
 
 ### 2. Effective User ID
-**Effective User ID(EUID)** is an ID which is normally the same as *Real User ID*, but can be changed to give files accessing privilege to a user, which files can be only accessed by a privileged user. (Example: *root*)
+**Effective User ID(EUID)** is an ID which is normally the same as *Real User ID*, but can be changed to give files accessing privilege to a non-privileged user.
 
 We can know it by using a command, `whoami`.
 
     $ whoami
+
+#### Usage
+It is used to give a user to temporarily take another user's identity, which is mostly the *root*'s identity.
+
+When you are going to allow a non-privileged user to access a file for a moment, you might consider giving him the *write* privilege using `chmod`. However, not only the privilege switching is inconvenient, it causes security risk since the user can move, modify, or even delete the file at will!
+
+Instead of doing that, it is better to use the effecitve UID, give him the privilege temporarily. It must be used to restrict users' behavior with delicacy.
 
 #### Examples
 
