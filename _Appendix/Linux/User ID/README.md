@@ -25,11 +25,11 @@ We can know it by using a command, `whoami`.
     $ whoami
 
 #### Usage
-It is used to give a user to temporarily take another user's identity, which is mostly the *root*'s identity.
+It is used to give a user to temporarily take another user's identity, which is mostly the *root*'s identity. It must be used to restrict users' behavior with delicacy.
 
 When you are going to allow a non-privileged user to access a file for a moment, you might consider giving him the *write* privilege using `chmod`. However, not only the privilege switching is inconvenient, it causes security risk since the user can move, modify, or even delete the file at will!
 
-Instead of doing that, it is better to use the effecitve UID, give him the privilege temporarily. It must be used to restrict users' behavior with delicacy.
+Instead of doing that, it is better to use the effecitve UID. It gives him the privilege temporarily, disabling him doing unauthorized actions without another one's identity.
 
 #### Examples
 
