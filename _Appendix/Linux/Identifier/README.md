@@ -1,7 +1,9 @@
-# Identifier in Linux
+# Identifiers in Linux
 1. Process ID
 2. User ID
 3. Group ID
+
+**Process ID(PID)**
 
 **User ID(UID)** is a classification of users, and **group ID(GID)** is of groups in the kernel level of the Linux OS.
 Both of them are translated to specific unsigned integer values,
