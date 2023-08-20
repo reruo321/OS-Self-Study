@@ -1,4 +1,6 @@
 # Identifiers in Linux
+Mainly three identifiers are available in Linux.
+
 1. Process ID
 2. User ID
 3. Group ID
