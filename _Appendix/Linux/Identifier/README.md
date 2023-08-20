@@ -5,7 +5,7 @@ Mainly three identifiers are available in Linux.
 2. User ID
 3. Group ID
 
-**Process ID(PID)**
+**Process ID(PID)** is a number that allows a user to identify a process to other applications. The first process that Linux runs is `systemd` whose PID is `0`. All other processes are spawn as children of it.
 
 **User ID(UID)** is a classification of users, and **group ID(GID)** is of groups in the kernel level of the Linux OS.
 Both of them are translated to specific unsigned integer values,
@@ -49,3 +49,6 @@ Instead of doing that, it is better to use the effecitve UID. It gives him the p
 **Saved User ID** 
 
 ## Group ID
+
+## Read Together
+* (External Link) [What Are Unix PIDs and How Do They Work?](https://www.howtogeek.com/devops/what-are-unix-pids-and-how-do-they-work/)
