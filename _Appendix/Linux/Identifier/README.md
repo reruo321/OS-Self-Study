@@ -5,20 +5,20 @@ Mainly three identifiers are available in Linux.
 2. User ID
 3. Group ID
 
+## Process ID
 **Process ID(PID)** is a number that allows a user to identify a process to other applications. The first process that Linux runs is `systemd` whose PID is `0`. All other processes are spawn as children of it.
 
+
+## User ID and Group ID
 **User ID(UID)** is a classification of users, and **group ID(GID)** is of groups in the kernel level of the Linux OS.
 Both of them are translated to specific unsigned integer values,
 which type is faster and smaller than string so that being preferred when passing the data.
 
-## Process ID
+There are three kinds of user ID and group ID defined for a process in Linux OS.
 
-## User ID
-There are three kinds of user ID defined for a process in Linux OS.
-
-* Real User ID
-* Effective User ID
-* Saved User ID
+* Real User ID / Real Group ID
+* Effective User ID / Effective Group ID
+* Saved User ID / Saved Group ID
 
 ### 1. Real User ID
 **Real User ID** is an ID of the user who has started the process.
