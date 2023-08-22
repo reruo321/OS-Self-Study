@@ -10,6 +10,6 @@ To change your password:
 
     $ passwd
 
-To change a user "TARGET_USER"'s password:
+To change a user *TARGET_USER*'s password:
 
     $ passwd TARGET_USER
