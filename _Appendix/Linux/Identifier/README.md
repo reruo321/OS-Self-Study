@@ -44,7 +44,9 @@ Instead of doing that, it is better to use the effecitve UID. It gives him the p
 
 #### Examples
 
-##### EUID in `passwd`
+##### * EUID in [`passwd`](https://github.com/reruo321/OS-Self-Study/blob/main/_Appendix/Linux/Commands/P/passwd/README.md)
+
+
 
 ### 3. Saved User ID
 **Saved User ID** 
