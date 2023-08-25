@@ -51,12 +51,14 @@ How can it work like that?
 
 Note that we should know two files for understanding it: `passwd` is the command known as `/usr/bin/passwd`, and `/etc/shadow` is a shadow password file which stores encrypted user passwords. Let's examine the file permissions of them!
 
++++
+
 ![passwd](https://github.com/reruo321/OS-Self-Study/assets/48712088/722d5a54-1537-4c6f-9494-ad03ea8149a7)
 
 It is `-rwsr-xr-x`. Since the file execute permission for the user owner is "s", it has the `setuid` bit set. If a non-*root* user tries to use this command, she gets the EUID of *root*.
 Therefore, she can change her own password by temporarily getting the *root*'s privilege and changing the `/etc/shadow` file.
 
-Then why she cannot change other users' password?
+Then why she cannot change other users' password? It's because the real UID and the effective UID of the process are different!
 
 
 ### 3. Saved User ID
