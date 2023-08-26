@@ -21,6 +21,8 @@ There are three kinds of user ID and group ID defined for a process in Linux OS.
 * Effective User ID / Effective Group ID
 * Saved User ID / Saved Group ID
 
+I'll explain these based on the user ID.
+
 ### 1. Real User ID
 **Real User ID** is an ID of the user who has started the process.
 
@@ -51,12 +53,15 @@ How can it work like that?
 
 Note that we should know two files for understanding it: `passwd` is the command known as `/usr/bin/passwd`, and `/etc/shadow` is a shadow password file which stores encrypted user passwords. Let's examine the file permissions of them!
 
-+++
-
 ![passwd](https://github.com/reruo321/OS-Self-Study/assets/48712088/722d5a54-1537-4c6f-9494-ad03ea8149a7)
 
-It is `-rwsr-xr-x`. Since the file execute permission for the user owner is "s", it has the `setuid` bit set. If a non-*root* user tries to use this command, she gets the EUID of *root*.
-Therefore, she can change her own password by temporarily getting the *root*'s privilege and changing the `/etc/shadow` file.
+![shadow](https://github.com/reruo321/OS-Self-Study/assets/48712088/598f451a-c9a0-4b55-be3e-2b0227de0868)
+
+The permissions of `passwd` is `-rwsr-xr-x`, and the user owner is *root*. Since the file execute permission for the user owner is "s", it has the `setuid` bit set. If a non-*root* user tries to execute this command, she gets the EUID of *root*.
+
+The permissions of the shadow file is `-rw-r-----`, and the user owner is *root*. It means that no one other than *root* is allowed to write this file. After the non-*root* user gets the *root*'s identity through the `passwd`, she can write `/etc/shadow`.
+
+In other words, she can change her own password even if she is not actually *root*, by temporarily getting the *root*'s privilege via the `passwd` and changing the shadow password file.
 
 Then why she cannot change other users' password? It's because the real UID and the effective UID of the process are different!
 
