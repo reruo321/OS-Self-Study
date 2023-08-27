@@ -38,7 +38,7 @@ We can know it by using a command, `whoami`.
     $ whoami
 
 ### Usage
-It is used to give a user to temporarily take another user's identity, which is mostly the *root*'s identity. It must be used to restrict users' behavior with delicacy.
+It is used to give a user to temporarily take another user's identity, usually elevating one's privilege. Mostly *root*'s identity is taken. The EUID management must restrict users' behavior with delicacy.
 
 When you are going to allow a non-privileged user to access a file for a moment, you might consider giving him the *write* privilege using `chmod`. However, not only the privilege switching is inconvenient, it causes security risk since the user can move, modify, or even delete the file at will!
 
@@ -59,7 +59,7 @@ Note that we should know two files for understanding it: `passwd` is the command
 
 The permissions of `passwd` is `-rwsr-xr-x`, and the user owner is *root*. Since the file execute permission for the user owner is "s", it has the `setuid` bit set. If a non-*root* user tries to execute this command, she gets the EUID of *root*.
 
-The permissions of the shadow file is `-rw-r-----`, and the user owner is *root*. It means that no one other than *root* is allowed to write this file. After the non-*root* user gets the *root*'s identity through the `passwd`, she can write `/etc/shadow`.
+The permissions of the shadow file is `-rw-r-----`, and the user owner is *root*. It means that no one other than *root* is allowed to write this file. After the non-*root* user gets the *root*'s identity through the `passwd`, she can modify her password by writing `/etc/shadow`.
 
 In other words, she can change her own password even if she is not actually *root*, by temporarily getting the *root*'s privilege via the `passwd` and changing the shadow password file.
 
