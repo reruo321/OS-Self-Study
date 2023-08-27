@@ -13,7 +13,7 @@ There are two conditions that the command allows a user to change the user passw
 
 You can check them by seeing the [source code, passwd.c](https://github.com/shadow-maint/shadow/blob/f76c31f50ed0cca018591cc2d0b43837d6224f7d/src/passwd.c#L990C2-L1004C1).
 
-Note that the user owner of `passwd` is *root*, and when a non-*root* user uses the command, she will get the *root*'s effective UID. Meanwhile, the real UID remains as the non-*root* user's one. (See [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Identifier#-euid-in-passwd) to understand the concept of UID.)
+Note that the user owner of `/usr/bin/passwd` is *root*, and when a non-*root* user uses the command, she will get the *root*'s effective UID. Meanwhile, the real UID remains as the non-*root* user's one. (See [here](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Identifier#-euid-in-passwd) to understand the concept of UID.)
 
 If *root* is willing to use `passwd`, it can change any user passwords in the system.
 
