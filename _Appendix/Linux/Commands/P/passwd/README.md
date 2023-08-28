@@ -28,6 +28,10 @@ To change a user *TARGET_USER*'s password:
 
     $ passwd TARGET_USER
 
+## Notes
+* The command `passwd` is equal to `/usr/bin/passwd`. It is different from `/etc/passwd`!!! It is a user database but does not store password information.
+* The passwords are stored in `/etc/shadow`. As I explained above, non-*root* users can change their own passwords by getting *root*'s EUID with `passwd`, and then write `/etc/shadow`.
+
 ## Read Together
 * (Other's Github Repository) [passwd.c](https://github.com/shadow-maint/shadow/blob/master/src/passwd.c) - The source code of `passwd`.
 * [Identifier](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Identifier#-euid-in-passwd) - This includes an example with `passwd` to understand UID.
