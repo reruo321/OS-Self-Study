@@ -51,7 +51,7 @@ Instead of doing that, it is better to use the effecitve UID. It gives him the p
 With the command `passwd`, a user can change her own user password, but not others. It would be very dangerous if one can modify other users' password without any permissions.
 How can it work like that?
 
-Note that we should know two files for understanding it: `passwd` is the command known as `/usr/bin/passwd`, and `/etc/shadow` is a shadow password file which stores encrypted user passwords. Let's examine the file permissions of them!
+Note that we should know two files for understanding it: `passwd` is the command known as `/usr/bin/passwd`, and `/etc/shadow` is a shadow password file which stores encrypted user passwords. (`/etc/passwd` is completely different file so has no relation to this matter!) Let's examine the file permissions of them!
 
 ![passwd](https://github.com/reruo321/OS-Self-Study/assets/48712088/722d5a54-1537-4c6f-9494-ad03ea8149a7)
 
