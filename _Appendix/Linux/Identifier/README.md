@@ -73,7 +73,7 @@ The permissions of the shadow file is `-rw-r-----`, and the user owner is *root*
 
 In other words, she can change her own password even if she is not actually *root*, by temporarily getting the *root*'s privilege via the `passwd` and changing the shadow password file.
 
-Then why she cannot change other users' password? See the Condition 2 above; it's because the UID (=any other user's UID) and the current real UID (=the user who are using the command) are different! Since 1) the current real UID remains as her UID and 2) every UID is unique, it is never the same as the UIDs of other users. Thus, no one except *root* can change other passwords. You must switch to *root* with `su` to do that.
+Then why she cannot change other users' password? See the Condition 2 above; it's because the UID (=any other user's UID) and the current real UID (=the user who are using the command) are different! Since 1) the current real UID remains as her UID and 2) every UID is unique, it is never the same as the UIDs of other users. Thus, no one except *root* can change other user's password. You must switch to *root* with `su` to do that.
 
 ### 3. Saved User ID
 **Saved User ID** 
