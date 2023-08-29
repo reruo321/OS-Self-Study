@@ -48,10 +48,20 @@ Instead of doing that, it is better to use the effecitve UID. It gives him the p
 
 ##### * EUID in [`passwd`](https://github.com/reruo321/OS-Self-Study/blob/main/_Appendix/Linux/Commands/P/passwd/README.md)
 
-With the command `passwd`, a user can change her own user password, but not others. It would be very dangerous if one can modify other users' password without any permissions.
-How can it work like that?
+With the command `passwd`, a user can change her own user password, but not other ones. It would be very dangerous if one can modify other users' password without any permissions.
+How can it work like that? 
 
-Note that we should know two files for understanding it: `passwd` is the command known as `/usr/bin/passwd`, and `/etc/shadow` is a shadow password file which stores encrypted user passwords. (`/etc/passwd` is completely different file so has no relation to this matter!) Let's examine the file permissions of them!
+According to the source code [`passwd.c`](https://github.com/shadow-maint/shadow/blob/f76c31f50ed0cca018591cc2d0b43837d6224f7d/src/passwd.c#L990C2-L1004C1), a user can change a password when one of these two conditions are met.
+
+1. The user is root.
+2. The UID of a user (target to change the password) is the same as the current real UID.
+
+And we should check two files for understanding the command.
+
+1. `passwd` is the same as `/usr/bin/passwd`.
+2. A shadow password file, `/etc/shadow`, stores encrypted user passwords.
+
+Note that `/etc/passwd` is completely different file so has no relation to the command! Now let's examine the file permissions of those two files!
 
 ![passwd](https://github.com/reruo321/OS-Self-Study/assets/48712088/722d5a54-1537-4c6f-9494-ad03ea8149a7)
 
@@ -63,8 +73,7 @@ The permissions of the shadow file is `-rw-r-----`, and the user owner is *root*
 
 In other words, she can change her own password even if she is not actually *root*, by temporarily getting the *root*'s privilege via the `passwd` and changing the shadow password file.
 
-Then why she cannot change other users' password? It's because the real UID and the effective UID of the process are different!
-
+Then why she cannot change other users' password? See the Condition 2 above; it's because the UID (=other users' UIDs) and the current real UID (=the user who are using the command) are different! Since 1) the current real UID remains as her UID and 2) every UID is unique, it is never the same as the UIDs of other users. Thus, no one except *root* can change other passwords. You must switch to *root* with `su` to do that.
 
 ### 3. Saved User ID
 **Saved User ID** 
