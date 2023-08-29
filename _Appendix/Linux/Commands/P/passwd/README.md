@@ -6,7 +6,7 @@ otherwise a normal user can change only the one for himself.
 It's in the directory `/usr/bin/passwd`.
 
 ## Conditions
-There are two conditions that the command allows a user to change the user password.
+A user is allowed to change a user password when she meets one of these two conditions.
 
 1. The user is *root*.
 2. The UID of a user (target to change the password) is the same as the current real UID.
