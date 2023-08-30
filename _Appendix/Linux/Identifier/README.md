@@ -24,7 +24,7 @@ There are three kinds of user ID and group ID defined for a process in Linux OS.
 I'll explain these based on the "user ID".
 
 ### 1. Real User ID
-**Real User ID** is an ID of the user who has started the process.
+**Real User ID(RUID)** is an ID of the user who has started the process.
 
 We can know it by using a command, `logname`.
 
@@ -76,7 +76,7 @@ In other words, she can change her own password even if she is not actually *roo
 Then why she cannot change other users' password? See the Condition 2 above; it's because the UID (=any other user's UID) and the current real UID (=the user who are using the command) are different! Since 1) the current real UID remains as her UID and 2) every UID is unique, it is never the same as the UIDs of other users. Thus, no one except *root* can change other user's password. You must switch to *root* with `su` to do that.
 
 ### 3. Saved User ID
-**Saved User ID** is an ID used to lower a process with an elevated privilege temporarily. (Usually *root*.) Without the SUID, a process cannot know the UID of another process, since there is no standard and reliable system call to explicitly get it. Moreover, it also prevents a user from messing things up in the system. Imagine a novice who spams her privilege with setuid-root programs and ruins all the whole system! Users should have lower privileges as much as possible for safety, and the SUID does good work here.
+**Saved User ID(SUID)** is an ID used to lower a process with an elevated privilege temporarily. (Usually *root*.) Without the SUID, a process cannot know the UID of another process, since there is no standard and reliable system call to explicitly get it. Moreover, it also prevents a user from messing things up in the system. Imagine a novice who spams her privilege with setuid-root programs and ruins all the whole system! Users should have lower privileges as much as possible for safety, and the SUID does good work here.
 
 ## Read Together
 * [`passwd`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/P/passwd)
