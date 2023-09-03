@@ -82,17 +82,45 @@ Without the SUID, a process cannot know the UID of another process, since there 
 
 ### Functions
 Various functions to set the process UIDs are provided by the Standard C library and Linux.
+
+#### Header
+    #include <unistd.h>
+
+#### Possible Errors
+> EPERM: operation not permitted
+* **EPERM**: The process does not have the appropriate privileges, the UID and EUID paramters are not equal to either the RUID or SUID of the process.
+
+
 #### `setuid`
+    int setuid(UID)
+    uid_t UID;
+
 `setuid` sets the RUID, EUID, and SUID to the value of the UID parameter.
 
 * If the EUID of the process is *root*: `setuid` sets RUID=UID, EUID=UID, SUID=UID.
 * If the EUID of the process is not *root* AND if the UID parameter is equal to RUID or SUID: `setuid` sets EUID=UID. Does not change RUID and SUID.
 
 #### `seteuid`
+    int seteuid(EUID)
+    uid_t EUID;
+
 `seteuid` sets the EUID to the value of the UID parameter.
 
 * If the EUID of the process is *root*: `seteuid` sets EUID=UID.
 * If the UID parameter is equal to either the current RUID or SUID: `seteuid` sets EUID=UID.
+
+#### `setruid`
+    int setruid(RUID)
+    uid_t RUID;
+    
+`setruid` sets the RUID to the value of the UID parameter. However, since processes cannot reset only their RUIDs, the EPERM error code is always returned.
+
+#### `setreuid`
+    int setreuid(RUID, EUID)
+    uid_t RUID;
+    uid_t EUID;
+
+`setreuid` sets the RUID and EUID to the values of the RUID and EUID parameters.
 
 ## Read Together
 * [`passwd`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/P/passwd)
