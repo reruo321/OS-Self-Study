@@ -81,7 +81,7 @@ Then why she cannot change other users' password? See the Condition 2 above; it'
 Without the SUID, a process cannot know the UID of another process, since there is no standard and reliable system call to explicitly get it. Moreover, it also prevents a user from messing things up in the system. Imagine a novice who spams her privilege with setuid-root programs and ruins all the whole system! Users should have lower privileges as much as possible for safety, and the SUID does good work here.
 
 ### Functions
-Various functions to set the process UIDs are provided by the Standard C library and Linux. They may have UID, EUID, RUID, or which as their parameters.
+Various functions to set the process UIDs are provided by the Standard C library and Linux. They may have UID, EUID, or RUID as their parameters.
 
 Note: I'll specify process's UIDs from parameters with an underline, like: <ins>UID</ins>.
 
