@@ -81,46 +81,57 @@ Then why she cannot change other users' password? See the Condition 2 above; it'
 Without the SUID, a process cannot know the UID of another process, since there is no standard and reliable system call to explicitly get it. Moreover, it also prevents a user from messing things up in the system. Imagine a novice who spams her privilege with setuid-root programs and ruins all the whole system! Users should have lower privileges as much as possible for safety, and the SUID does good work here.
 
 ### Functions
-Various functions to set the process UIDs are provided by the Standard C library and Linux.
+Various functions to set the process UIDs are provided by the Standard C library and Linux. They may have UID, EUID, RUID, or which as their parameters.
+
+Note: I'll specify process's UIDs from parameters with an underline, like: <ins>UID</ins>.
 
 #### Header
     #include <unistd.h>
 
 #### Possible Errors
-> EPERM: operation not permitted
-* **EPERM**: The process does not have the appropriate privileges, the UID and EUID paramters are not equal to either the RUID or SUID of the process.
+> Error: EPERM: operation not permitted
+* **EPERM**: The process does not have the appropriate privileges, the UID and EUID paramters are NOT equal to either the RUID or SUID of the process.
 
+> Error: EINVAL: invalid argument
+* **EINVAL**: The value of the UID or EUID parameter is not valid.
 
 #### `setuid`
     int setuid(UID)
     uid_t UID;
 
-`setuid` sets the RUID, EUID, and SUID to the value of the UID parameter.
+`setuid` sets the process's <ins>RUID</ins>, <ins>EUID</ins>, and <ins>SUID</ins> to the value of the UID parameter.
 
-* If the EUID of the process is *root*: `setuid` sets RUID=UID, EUID=UID, SUID=UID.
-* If the EUID of the process is not *root* AND if the UID parameter is equal to RUID or SUID: `setuid` sets EUID=UID. Does not change RUID and SUID.
+* If the EUID of the process is *root*: `setuid` sets <ins>RUID</ins>=UID, <ins>EUID</ins>=UID, <ins>SUID</ins>=UID.
+* If the <ins>EUID</ins> of the process is NOT *root* AND if the UID parameter is equal to <ins>RUID</ins> or <ins>SUID</ins>: `setuid` sets <ins>EUID</ins>=UID. Does not change <ins>RUID</ins> and <ins>SUID</ins>.
 
 #### `seteuid`
     int seteuid(EUID)
     uid_t EUID;
 
-`seteuid` sets the EUID to the value of the UID parameter.
+`seteuid` sets the <ins>EUID</ins> to the value of the UID parameter.
 
-* If the EUID of the process is *root*: `seteuid` sets EUID=UID.
-* If the UID parameter is equal to either the current RUID or SUID: `seteuid` sets EUID=UID.
+* If the <ins>EUID</ins> of the process is *root*: `seteuid` sets <ins>EUID</ins>=UID.
+* If the UID parameter is equal to either the current <ins>RUID</ins> or <ins>SUID</ins>: `seteuid` sets </ins>EUID</ins>=UID.
 
 #### `setruid`
     int setruid(RUID)
     uid_t RUID;
     
-`setruid` sets the RUID to the value of the UID parameter. However, since processes cannot reset only their RUIDs, the EPERM error code is always returned.
+`setruid` sets the <ins>RUID</ins> to the value of the UID parameter.
+
+* Since processes cannot reset only their <ins>RUID</ins>s, the EPERM error code is always returned.
 
 #### `setreuid`
     int setreuid(RUID, EUID)
     uid_t RUID;
     uid_t EUID;
 
-`setreuid` sets the RUID and EUID to the values of the RUID and EUID parameters.
+`setreuid` sets the <ins>RUID</ins> to the value of the RUID parameter, and the <ins>EUID</ins> to the value of the *EUID* parameter.
+
+* If two parameters RUID!=EUID AND if EUID paramter is equal to the process's <ins>RUID</ins> or <ins>SUID</ins>: <ins>EUID</ins>=EUID
+* If two parameters RUID!=EUID AND if EUID paramter is NOT equal to the process's <ins>RUID</ins> or <ins>SUID</ins>: EPERM error
+* If two parameters RUID==EUID AND if the process <ins>EUID</ins> is *root*: <ins>RUID</ins>=EUID, <ins>EUID</ins>=EUID
+* If two parameters RUID==EUID AND if the process <ins>EUID</ins> is NOT *root*: EPERM error
 
 ## Read Together
 * [`passwd`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/P/passwd)
