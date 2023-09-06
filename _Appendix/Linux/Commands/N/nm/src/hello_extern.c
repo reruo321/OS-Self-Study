@@ -1,4 +1,8 @@
-include <stdio.h>
+/*
+ * WARNING: The code will produce a linker error!
+ */
+
+#include <stdio.h>
 
 int main(){
     extern int NN;
