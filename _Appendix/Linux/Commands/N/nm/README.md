@@ -32,7 +32,7 @@ Information is shown like this:
 
 Symbol `U` means "undefined", and `T` means "in the text section".
 We learn that the file "hello_extern.o" defines only one symbol, `main`. Meanwhile, it DOES also declare `NN` and `printf` but NOT define them. Therefore, the linker is expected to find `NN` and `printf`.
-The linker `ld` found `printf` when linking with the C Standard Library, but cannot found `NN` anyware. That's why `ld` said "undefined reference to `NN'"!
+The linker `ld` finds `printf` when linking with the C Standard Library, but cannot find `NN` anyware. That's why `ld` says "undefined reference to `NN'" error!
 
 (For more information on symbols, check [here](https://linux.die.net/man/1/nm).)
 
