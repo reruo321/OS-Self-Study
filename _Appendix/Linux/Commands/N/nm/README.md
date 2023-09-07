@@ -2,10 +2,13 @@
 `nm` stands for **name mangling**,
 and the Linux command is used to dump the symbol table and their attributes from a binary executable file.
 
+## Manual
+* [Linux man page - `nm`](https://linux.die.net/man/1/nm).)
+
 ## Example
 You can use it on object files for debugging purpose.
 
-I attached an wrong C source code example as "hello_extern.c". If you try to compile it,
+I attached a wrong C source code example as "hello_extern.c". If you try to compile it,
 
     $ gcc -c hello_extern.c
 
@@ -30,12 +33,11 @@ Information is shown like this:
     0000000000000000 T main
                      U printf
 
-Symbol `U` means "undefined", and `T` means "in the text section".
-We learn that the file "hello_extern.o" defines only one symbol, `main`. Meanwhile, it DOES also declare `NN` and `printf` but NOT define them. Therefore, the linker is expected to find `NN` and `printf`.
-The linker `ld` finds `printf` when linking with the C Standard Library, but cannot find `NN` anyware. That's why `ld` says "undefined reference to `NN'" error!
+Symbol `U` means "undefined", and `T` means "globally defined in the text section".
+We learn that the file "hello_extern.o" defines only one symbol, `main`. Meanwhile, it DOES also declare `NN` and `printf` but NOT define them. Therefore, the linker is expected to find the definitions of `NN` and `printf` outside.
 
-(For more information on symbols, check [here](https://linux.die.net/man/1/nm).)
+The linker `ld` finds `printf` when linking with the C Standard Library, but cannot find `NN` anyware. That's why `ld` says "undefined reference to `NN`" error!
 
 ## External Links
 * [nm](https://linux.die.net/man/1/nm) - `nm` from Linux man page
-* [What is extern in C?](https://jameshfisher.com/2017/08/27/c-extern/) - Reference for the `nm` usage
+* [What is extern in C?](https://jameshfisher.com/2017/08/27/c-extern/) - Reference for the example
