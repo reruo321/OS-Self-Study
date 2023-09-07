@@ -14,4 +14,4 @@
 
 ### Constraints
 1. Define a string `fpath = "(PATH)XXXXAAAABBBB"` at a section.
-2. Modify and use `fpath` for ALL arguments, in all functions you will call.
+2. Use `fpath` for ALL arguments that load an address.
