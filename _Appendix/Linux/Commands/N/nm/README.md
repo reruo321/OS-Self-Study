@@ -3,7 +3,7 @@
 and the Linux command is used to dump the symbol table and their attributes from a binary executable file.
 
 ## Manual
-* [Linux man page - `nm`](https://linux.die.net/man/1/nm).)
+* [Linux man page - `nm`](https://linux.die.net/man/1/nm)
 
 ## Example
 You can use it on object files for debugging purpose.
