@@ -13,5 +13,45 @@
 8. Execute the program as a non-*root* user again, and check the username of the current user with a command. Are you *root* or not?
 
 ### Constraints
-1. Define a string `fpath = "(PATH)XXXXAAAABBBB"` at a section.
+1. Declare just one variable; define a string something like `fpath = "(PATH)XXXXAAAABBBBCCCC"`. You can adjust the masking alphabet part. (Example: /my/path/helloXABBCCCCD)
 2. Use `fpath` for ALL arguments that load an address.
+
+## Hints
+<details>
+  <summary><b>SPOILERS</b></summary>
+
+### Hint 1: System Calls
+    // NR = 70
+    int setreuid(uid_t ruid, uid_t euid);
+
+    // NR = 11
+    int execve(const char *pathname, char *const _Nullable argv[],
+                  char *const _Nullable envp[]);
+
+### Hint 2: Section
+1. `.data`: The data section
+
+    a. String "/bin/shXXXX" (Note: Just an example for the hint! Might not be final.)
+   
+2. `.text`: The code section
+
+    a. `.global`: `_start` (The entry point of the program)
+  
+    b. `_start`
+
+    * int setreuid(uid_t *ruid*, uid_t *euid*);
+    * int execve(const char **pathname*, char **const* _Nullable *argv[]*, char *const _Nullable *envp[]*);
+
+### Hint 3: Other Assembly Hints
+
+### Hint 4: 
+
+3. Compile & Execute
+
+   a. `gcc`: GNU Compiler. Need to generate code for IA-32 architecture.
+
+   b. `ld`: GNU Linker. Need to output 32-bit code.
+
+   c. Execute the output
+
+</details>
