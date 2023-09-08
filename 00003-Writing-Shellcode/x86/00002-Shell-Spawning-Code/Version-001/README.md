@@ -42,10 +42,6 @@
     * int setreuid(uid_t *ruid*, uid_t *euid*);
     * int execve(const char **pathname*, char **const* _Nullable *argv[]*, char *const _Nullable *envp[]*);
 
-### Hint 3: Other Assembly Hints
-
-### Hint 4: 
-
 3. Compile & Execute
 
    a. `gcc`: GNU Compiler. Need to generate code for IA-32 architecture.
@@ -53,5 +49,11 @@
    b. `ld`: GNU Linker. Need to output 32-bit code.
 
    c. Execute the output
+
+### Hint 3: Other Assembly Hints
+
+### Hint 4: 
+
+
 
 </details>
