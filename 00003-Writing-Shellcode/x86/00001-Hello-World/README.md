@@ -27,9 +27,9 @@ TODO: Write a shellcode that prints out "Hello, World!\n" to the screen on **x86
 
 3. Compile & Execute
 
-   a. `gcc`: GNU Compiler
+   a. `gcc`: GNU Compiler. Need to generate code for IA-32 architecture.
 
-   b. `ld`: GNU Linker
+   b. `ld`: GNU Linker. Need to output 32-bit code.
 
    c. Execute the output
 
