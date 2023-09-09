@@ -42,17 +42,21 @@
     * int setreuid(uid_t *ruid*, uid_t *euid*);
     * int execve(const char **pathname*, char **const* _Nullable *argv[]*, char *const _Nullable *envp[]*);
 
-3. Compile & Execute
+### Hint 3: Other Assembly Hints
+#### `setreuid`
+Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
+
+* 
+
+### Hint 4: Execution
+
+1. Compile & Execute
 
    a. `gcc`: GNU Compiler. Need to generate code for IA-32 architecture.
 
    b. `ld`: GNU Linker. Need to output 32-bit code.
 
    c. Execute the output
-
-### Hint 3: Other Assembly Hints
-
-### Hint 4: 
 
 
 
