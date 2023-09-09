@@ -96,46 +96,39 @@ Note: I'll specify process's UIDs from parameters with an underline, like: <ins>
 * **EINVAL**: The value of the UID or EUID parameter is not valid.
 
 #### `setuid`
-    int setuid(UID)
-    uid_t UID;
+    int setuid(uid_t uid);
 
-`setuid` sets the process's <ins>RUID</ins>, <ins>EUID</ins>, and <ins>SUID</ins> to the value of the UID parameter.
+* [`setuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setuid.2.html)
 
-* If the EUID of the process is *root*: `setuid` sets <ins>RUID</ins>=UID, <ins>EUID</ins>=UID, <ins>SUID</ins>=UID.
-* If the <ins>EUID</ins> of the process is NOT *root* AND if the UID parameter is equal to <ins>RUID</ins> or <ins>SUID</ins>: `setuid` sets <ins>EUID</ins>=UID. Does not change <ins>RUID</ins> and <ins>SUID</ins>.
+`setuid` sets the process's <ins>EUID</ins>, and also conditionally <ins>RUID</ins> and <ins>SUID</ins> to the value of the UID parameter.
 
-#### `seteuid`
-    int seteuid(EUID)
-    uid_t EUID;
-
-`seteuid` sets the <ins>EUID</ins> to the value of the UID parameter.
-
-* If the <ins>EUID</ins> of the process is *root*: `seteuid` sets <ins>EUID</ins>=UID.
-* If the UID parameter is equal to either the current <ins>RUID</ins> or <ins>SUID</ins>: `seteuid` sets </ins>EUID</ins>=UID.
-
-#### `setruid`
-    int setruid(RUID)
-    uid_t RUID;
-    
-`setruid` sets the <ins>RUID</ins> to the value of the UID parameter.
-
-* Since processes cannot reset only their <ins>RUID</ins>s, the EPERM error code is always returned.
+* If the calling processor is privileged (if the user is *root* OR the program is set-user-ID-*root*): If the EUID of the caller is superuser, `setuid` sets <ins>RUID</ins>=UID, <ins>EUID</ins>=UID, <ins>SUID</ins>=UID.
+* Otherwise: `setuid` sets <ins>EUID</ins>=UID. Does not change <ins>RUID</ins> and <ins>SUID</ins>.
 
 #### `setreuid`
     int setreuid(RUID, EUID)
     uid_t RUID;
     uid_t EUID;
 
+* [`setreuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setreuid.2.html)
+
 `setreuid` sets the <ins>RUID</ins> to the value of the RUID parameter, and the <ins>EUID</ins> to the value of the *EUID* parameter.
 
-* If two parameters RUID!=EUID AND if EUID paramter is equal to the process's <ins>RUID</ins> or <ins>SUID</ins>: <ins>EUID</ins>=EUID
-* If two parameters RUID!=EUID AND if EUID paramter is NOT equal to the process's <ins>RUID</ins> or <ins>SUID</ins>: EPERM error
-* If two parameters RUID==EUID AND if the process <ins>EUID</ins> is *root*: <ins>RUID</ins>=EUID, <ins>EUID</ins>=EUID
-* If two parameters RUID==EUID AND if the process <ins>EUID</ins> is NOT *root*: EPERM error
+* If the RUID is -1: Do not change <ins>RUID</ins>.
+* If the EUID is -1: Do not change <ins>EUID</ins>.
+* If a process is unprivileged AND the EUID is equal to <ins>RUID</ins>, <ins>EUID</ins>, or <ins>SUID</ins>: sets <ins>EUID</ins>=RUID or <ins>EUID</ins>=EUID or <ins>EUID</ins>=SUID.
+* If a user is unprivileged: sets <ins>RUID</ins>=RUID or <ins>RUID</ins>=EUID.
+* If the RUID is not -1 OR the EUID is not equal to the previous RUID: <ins>SUID</ins>=EUID.
+* If a process is privileged: sets <ins>RUID</ins>=RUID, <ins>EUID</ins>=EUID.
+
+#### `setresuid`
+* [`setresuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setresuid.2.html)
 
 ## Read Together
 * [`passwd`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/P/passwd)
 
 ### External Links
 * [What Are Unix PIDs and How Do They Work?](https://www.howtogeek.com/devops/what-are-unix-pids-and-how-do-they-work/)
-* [setuid, setruid, seteuid, setreuid or setuidx Subroutine](https://www.ibm.com/docs/en/aix/7.3?topic=s-setuid-setruid-seteuid-setreuid-setuidx-subroutine)
+* [`setuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setuid.2.html)
+* [`setreuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setreuid.2.html)
+* [`setresuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setresuid.2.html)
