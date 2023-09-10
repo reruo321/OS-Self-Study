@@ -148,7 +148,7 @@ Note: I'll specify process's UIDs from parameters with an underline, like: <ins>
 
 * If a process is unprivileged: change its <ins>RUID</ins>, <ins>EUID</ins>, <ins>SUID</ins>, each to one of the current RUID, EUID, or SUID.
 * If a process is privileged with having CAP_SETUID capability: sets <ins>RUID</ins>, <ins>EUID</ins>, <ins>SUID</ins> to arbitrary values.
-* If one of the arguments equals -1: the corresponding ID is not changed.
+* If one of the arguments equals -1: the corresponding <ins>ID</ins> is not changed.
 * The filesystem UID: is always set to the same value as the (possibly new) EUID.
 
 ## Read Together
