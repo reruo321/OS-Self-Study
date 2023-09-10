@@ -96,19 +96,33 @@ Note: I'll specify process's UIDs from parameters with an underline, like: <ins>
 * **EINVAL**: The value of the UID or EUID parameter is not valid.
 
 #### `setuid`
+    #include <unistd.h>
+    
     int setuid(uid_t uid);
 
 * [`setuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setuid.2.html)
 
 `setuid` sets the process's <ins>EUID</ins>, and also conditionally <ins>RUID</ins> and <ins>SUID</ins> to the value of the UID parameter.
 
-* If the calling processor is privileged (if the user is *root* OR the program is set-user-ID-*root*): If the EUID of the caller is superuser, `setuid` sets <ins>RUID</ins>=UID, <ins>EUID</ins>=UID, <ins>SUID</ins>=UID.
+* If the calling process is privileged (if the user is *root* OR the program is set-user-ID-*root*): If the EUID of the caller is superuser, `setuid` sets <ins>RUID</ins>=UID, <ins>EUID</ins>=UID, <ins>SUID</ins>=UID.
 * Otherwise: `setuid` sets <ins>EUID</ins>=UID. Does not change <ins>RUID</ins> and <ins>SUID</ins>.
 
-#### `setreuid`
-    int setreuid(RUID, EUID)
-    uid_t RUID;
-    uid_t EUID;
+#### `setgid`
+    #include <unistd.h>
+    
+    int setgid(gid_t gid);
+
+* [`setgid` - Linux manual page](https://man7.org/linux/man-pages/man2/setgid.2.html)
+
+`setgid` sets the process's <ins>EGID</ins>, and also conditionally <ins>RGID</ins> and <ins>SGID</ins> to the value of the GID parameter.
+
+* If the calling process is privileged with having CAP_SETGID capability in its user namespace: `setgid` sets <ins>RGID</ins>=GID, <ins>EGID</ins>=GID, <ins>SGID</ins>=GID.
+
+#### `setreuid` / `setregid`
+       #include <unistd.h>
+
+       int setreuid(uid_t ruid, uid_t euid);
+       int setregid(gid_t rgid, gid_t egid);
 
 * [`setreuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setreuid.2.html)
 
@@ -121,8 +135,21 @@ Note: I'll specify process's UIDs from parameters with an underline, like: <ins>
 * If the RUID is not -1 OR the EUID is not equal to the previous RUID: <ins>SUID</ins>=EUID.
 * If a process is privileged: sets <ins>RUID</ins>=RUID, <ins>EUID</ins>=EUID.
 
-#### `setresuid`
+#### `setresuid` / `setresgid`
+       #define _GNU_SOURCE
+       #include <unistd.h>
+
+       int setresuid(uid_t ruid, uid_t euid, uid_t suid);
+       int setresgid(gid_t rgid, gid_t egid, gid_t sgid);
+
 * [`setresuid` - Linux manual page](https://man7.org/linux/man-pages/man2/setresuid.2.html)
+
+`setresuid` sets the <ins>RUID</ins>, the <ins>EUID</ins>, and the <ins>SUID</ins> of the calling process.
+
+* If a process is unprivileged: change its <ins>RUID</ins>, <ins>EUID</ins>, <ins>SUID</ins>, each to one of the current RUID, EUID, or SUID.
+* If a process is privileged with having CAP_SETUID capability: sets <ins>RUID</ins>, <ins>EUID</ins>, <ins>SUID</ins> to arbitrary values.
+* If one of the arguments equals -1: the corresponding ID is not changed.
+* The filesystem UID: is always set to the same value as the (possibly new) EUID.
 
 ## Read Together
 * [`passwd`](https://github.com/reruo321/OS-Self-Study/tree/main/_Appendix/Linux/Commands/P/passwd)
