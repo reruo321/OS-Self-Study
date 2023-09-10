@@ -31,7 +31,7 @@
 ### Hint 2: Section
 1. `.data`: The data section
 
-    a. String "/bin/shXXXX" (Note: Just an example for the hint! Might not be final.)
+    a. String "/bin/shXXXX" (Note: Just an example for the hint! Might not be the final.)
    
 2. `.text`: The code section
 
