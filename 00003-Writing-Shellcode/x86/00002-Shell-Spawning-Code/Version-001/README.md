@@ -43,13 +43,31 @@
 
 ### Hint 3: Execution
 
-1. Compile & Execute
+1. (TODO 1~3) Compile & Execute as Normal User
 
    a. `gcc`: GNU Compiler. Need to generate code for IA-32 architecture.
 
    b. `ld`: GNU Linker. Need to output 32-bit code.
 
-   c. Execute the output
+   c. Execute the output.
+
+2. (TODO 4) Switch to Root, and Do Step 1 Again
+
+   a. `su`: A command to switch account to root.
+
+   b. `cd`: A command to change directory.
+
+3. (TODO 5) Change the Owner of the Program with Root Privilege Temporarily
+
+   a. `sudo`: A command to temporarily being granted root privilege.
+
+   b. `chown`: A command to change the owner of the program.
+   
+5. (TODO 6) Set the `setuid` bit to the Program with Root Privilege Temporarily
+
+   a. `sudo`: A command to temporarily being granted root privilege.
+
+   b. `chmod`: A command to set the `setuid` bit.
 
 </details>
 
