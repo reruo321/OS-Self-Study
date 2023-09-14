@@ -100,6 +100,6 @@
 ### `setreuid`
 Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
 
-* `setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
+`setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
 
 </details>
