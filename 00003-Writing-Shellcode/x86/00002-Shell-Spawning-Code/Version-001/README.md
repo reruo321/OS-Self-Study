@@ -102,4 +102,10 @@ Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.h
 
 `setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
 
+This is why we need to use `setreuid` in the project. Even if the program drops root privileges,
+
+    setreuid(0, 0);
+
+This will set both of the RUID and EUID to root's UID, and `execve` next to it will spawn a root shell.
+
 </details>
