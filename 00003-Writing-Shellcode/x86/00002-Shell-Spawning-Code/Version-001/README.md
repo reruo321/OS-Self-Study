@@ -99,7 +99,7 @@
 
     # int execve(const char *pathname, char *const _Nullable argv[],
                   char *const _Nullable envp[]);
-    # execve("/bin/sh", ["/bin/sh"], ["0"]);
+    # execve("/bin/sh", ["/bin/sh"], 0);
 
     # Let's set %eax = 0 temporarily for filling some other registers with 0s.
     # %ebx is the address of filepath. Set %ebx = $filepath, and apply it on other registers.
