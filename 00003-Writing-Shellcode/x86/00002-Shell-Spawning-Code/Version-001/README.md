@@ -99,16 +99,8 @@
 
     # int execve(const char *pathname, char *const _Nullable argv[],
                   char *const _Nullable envp[]);
-    # execve("/bin/sh", ["/bin/sh"], 0);
-
-    # Let's set %eax = 0 temporarily for filling some other registers with 0s.
-    # %ebx is the address of filepath. Set %ebx = $filepath, and apply it on other registers.
-    # %ecx is made of two things: the address of filepath + null address
-    # %edx is made of null address
-
-    # For example, we can adjust the characters from the start of the filepath address like this: 
-    # / b i n / s h (null) (address-of-filepath) (null-address)
-    # 0 1 2 3 4 5 6    7      8   9   10   11     12  13  14  15
+    # execve("/bin/sh", ["/bin/sh"], NULL);
+    # See more explanation below
             
             movl $0, %eax
             movl $filepath, %ebx
@@ -125,6 +117,8 @@
 Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
 
 `execve` executes the program referred to by pathname.
+
+![execve](https://github.com/reruo321/OS-Self-Study/assets/48712088/0f3ebb37-f8eb-42d5-bb04-64955a50aa4b)
 
 ### `setreuid`
 Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
