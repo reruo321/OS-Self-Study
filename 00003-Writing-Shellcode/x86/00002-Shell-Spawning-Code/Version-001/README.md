@@ -131,10 +131,14 @@ Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
 
 ![execve](https://github.com/reruo321/OS-Self-Study/assets/48712088/0f3ebb37-f8eb-42d5-bb04-64955a50aa4b)
 
-(Red) In addition to "/bin/sh", there should be a character '\0' at the end of the string.
+(Blue) `/bin/sh` is an executable file and a symbolic link to `bash`, which is the default shell in most Linux distributions.
+
+(Red) In addition to "/bin/sh", you should add a NULL character, '\0', to identify the end of the string. It is 
 
 (Green) To refer the address again on the parameter *argv*, put it on the 8~11th characters.
 
 (Purple) Set the null pointer to terminate two parameter arrays, *argv* and *envp*. It can be expressed as 0x0000.
+
+To sum up, one of the methods to define the variable `filepath` is "/bin/shXAAAABBBB".
 
 </details>
