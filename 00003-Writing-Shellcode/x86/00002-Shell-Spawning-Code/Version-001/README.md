@@ -113,6 +113,17 @@
             leal 12(%ebx), %edx
             int $0x80
 
+### `setreuid`
+Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
+
+`setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
+
+This is why we need to use `setreuid` in the project. Even if the program drops root privileges when it starts to run,
+
+    setreuid(0, 0);
+
+This will set both of the RUID and EUID to root's UID (= 0), so `execve` next to it can spawn a root shell.
+
 ### `evecve`
 Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
 
@@ -125,16 +136,5 @@ Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
 (Green) To refer the address again on the parameter *argv*, put it on the 8~11th characters.
 
 (Purple) Set the null pointer to terminate two parameter arrays, *argv* and *envp*. It can be expressed as 0x0000.
-
-### `setreuid`
-Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
-
-`setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
-
-This is why we need to use `setreuid` in the project. Even if the program drops root privileges when it starts to run,
-
-    setreuid(0, 0);
-
-This will set both of the RUID and EUID to root's UID (= 0), so `execve` next to it can spawn a root shell.
 
 </details>
