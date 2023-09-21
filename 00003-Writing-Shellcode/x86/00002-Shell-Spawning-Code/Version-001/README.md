@@ -133,7 +133,9 @@ Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
 
 * (Blue) `/bin/sh` is an executable file and a symbolic link to `bash`, which is the default shell in most Linux distributions.
 
-* (Red) In addition to "/bin/sh", you should add a NULL character, '\0', to identify the end of the string.
+* (Red) In addition to "/bin/sh", you should add a NULL character, '\0', to identify the end of the string. It's the 7th character.
+
+Note that the parameters *argv* and *envp* should get the type as 'const char *'!
 
 * (Green) To refer the address again on the parameter *argv*, put it on the 8~11th characters.
 
