@@ -75,6 +75,8 @@
 <details>
   <summary><b>SPOILERS</b></summary>
 
+### Assembly
+
     .data
     filepath:
             .string "/bin/shXAAAABBBB"
@@ -113,7 +115,7 @@
             leal 12(%ebx), %edx
             int $0x80
 
-### `setreuid`
+#### `setreuid`
 Linux manual page: [setreuid](https://man7.org/linux/man-pages/man2/setreuid.2.html)
 
 `setuid` root programs usually drop root privileges for the security purposes. Therefore, even if a shellcode has the `setuid` bit, if it runs only `execve`, it will always spawn a normal user shell for the normal user.
@@ -124,7 +126,7 @@ This is why we need to use `setreuid` in the project. Even if the program drops 
 
 This will set both of the RUID and EUID to root's UID (= 0), so `execve` next to it can spawn a root shell.
 
-### `evecve`
+#### `evecve`
 Linux manual page: [execve](https://man7.org/linux/man-pages/man2/execve.2.html)
 
 `execve` executes the program referred to by pathname.
@@ -142,5 +144,10 @@ Note that the parameters *argv* and *envp* should get the type as 'const char *'
 * (Purple) Set the null pointer to terminate two parameter arrays, *argv* and *envp*. It can be expressed as 0x0000. Put it on the 12~15th characters so that it can be used for both *argv* (\[filepath, NULL\]) and *envp*. (\[NULL\])
 
 To sum up, one of the methods to define the variable `filepath` is "/bin/shXAAAABBBB".
+
+### File Permission
+#### `chown`
+
+#### `chmod`
 
 </details>
