@@ -6,9 +6,9 @@
 1. Before you start, ensure that you are a non-root user!
 2. Write a shellcode that spawns normal user shell on **x86**. Add some codes so that it can also spawn a root shell, when you are running a `setuid` root program with the root privileges! Compile the code.
 3. Execute the program, and check if the program spawns a normal user shell correctly.
-4. Switch your account to root, and do the Step 3 again. If it spawns a root shell successfully, go to the next!
-5. With being granted root privilege temporarily, change the owner of the program as root.
-6. With being granted root privilege temporarily, set the `setuid` bit.
+4. Switch your account to root, and do the Step 3 again. If it spawns a root shell successfully, come back to the non-root user account and go to the next!
+5. With being granted root privileges temporarily, change the owner of the program as root.
+6. With being granted root privileges temporarily, set the `setuid` and `setgid` bit.
 7. Execute the program as a non-root user again, and check the user of the spawned shell with a command. Are you root or not?
 
 ### Constraints
@@ -75,7 +75,20 @@
 <details>
   <summary><b>SPOILERS</b></summary>
 
+The result from the Step 1~3:
+
+![whoami reruo](https://github.com/reruo321/OS-Self-Study/assets/48712088/4699d157-bdec-4ba3-b21c-ff07d275736f)
+
+The result from the Step 4:
+
+![noset whoami root](https://github.com/reruo321/OS-Self-Study/assets/48712088/b8b40138-54f7-4a32-b932-4e170c7592f8)
+
+The result from the Step 5~7:
+
+![whoami root](https://github.com/reruo321/OS-Self-Study/assets/48712088/f7dc3451-9e8c-486e-9789-7e93d3ceade1)
+
 ### Assembly
+(Step 1, 2)
 
     .data
     filepath:
@@ -165,9 +178,46 @@ After moving 0s from `eax`, move 11 to it to execute `execve`, the system call #
     leal 8(%ebx), %ecx
     leal 12(%ebx), %edx
 
-### File Permission
+### Compiling
+Let's compile the project code, "spawn1.s".
+
+(In i386)
+
+    $ gcc spawn1.s -c && ld spawn1.o -o spawn1
+
+(In x86-64)
+
+    $ gcc spawn1.s -c -m32 && ld spawn1.o -o spawn1 -melf_i386
+
+### Checking the User
+(Step 3, 4, 7) Run a shell and use `whoami` or `id -un` to find the username of the current effective UID.
+
+![whoami reruo](https://github.com/reruo321/OS-Self-Study/assets/48712088/64cd14ee-e7f6-4ec7-a106-ee32ccc00720)
+
+![whoami root](https://github.com/reruo321/OS-Self-Study/assets/48712088/ef0e6234-07f0-4227-8a2d-1bf105992a15)
+
+You can also check the type of the shell you are running right away with the "prompt indicator". `$` indicates that it is a normal user shell. On the other hand, `#` indicates that it is a root shell, whose EUID is 0.
+
+### Switching the User Account
+(Step 4) On the terminal, switch your user account with the `su` command.
+
+If you want to switch to root,
+
+    $ su -
+
+If you want to switch back to a normal user "reruo",
+
+    $ su reruo
+
+### File Permissions
 #### `chown`
+(Step 5) On the terminal, use the `chown` command with `sudo` for the temporary root privileges. It changes the owner of the program to root.
+
+    $ sudo chown root spawn1
 
 #### `chmod`
+(Step 6) On the terminal, use the `chmod` command with `sudo` for the temporary root privileges. `chmod +s` sets both `setuid` bit and `setgid` bit ON.
+
+    $ sudo chmod +s spawn1
 
 </details>
