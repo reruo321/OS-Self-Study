@@ -13,3 +13,8 @@ Let's write a new shellcode to be injected, by changing some parts of the [Versi
 
 ## TODO
 1. Considering the Checklist above, write the shellcode.
+
+## Solution
+<details>
+  <summary><b>SPOILERS</b></summary>
+</details>
