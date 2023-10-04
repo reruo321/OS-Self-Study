@@ -12,7 +12,7 @@ Let's write a new shellcode to be injected, by changing some parts of the [Versi
 2. After the Checklist 1, can we still find all addresses we should know? If not, what kinds of addresses are unknown? Think about the solutions for each problem. (Hint: Stack, GOTO)
 
 ## TODO
-1. Considering the Checklist above, write the shellcode.
+1. Considering the Checklist above, write the shellcode. You can either edit the code of the previous version, or write a new one.
 
 ## Solution
 <details>
