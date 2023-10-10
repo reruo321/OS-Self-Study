@@ -2,9 +2,10 @@
 My OS Self-study Repository is for
 
 * Computer System
+* System Programming
 * Operating Systems
 * Linux Kernel Modules
-* Assembly (AT&T assembly syntax)
+* Assembly (Mainly AT&T assembly syntax)
 
 ## Environment
 I would use **Ubuntu 22.04.1** on Virtualbox for normal projects.
