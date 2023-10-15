@@ -6,7 +6,7 @@
 In the [Version. 1](https://github.com/reruo321/OS-Self-Study/tree/main/00003-Writing-Shellcode/x86/00002-Shell-Spawning-Code/Version-001), we have created our first shellcode as an executable file. However, it is an unusual form, and we should make it "injected" into another working executable file.
 
 ## Checklist
-Let's write a new shellcode to be injected, by changing some parts of the [Version. 1 code](https://github.com/reruo321/OS-Self-Study/blob/main/00003-Writing-Shellcode/x86/00002-Shell-Spawning-Code/Version-001/src/spawn1.s).
+Let's write a new shellcode that can be injected, by changing some parts of the [Version. 1 code](https://github.com/reruo321/OS-Self-Study/blob/main/00003-Writing-Shellcode/x86/00002-Shell-Spawning-Code/Version-001/src/spawn1.s).
 
 1. Is there any part that we cannot use for injecting shellcode? If it exists, how can we change it to use it again?
 2. After the Checklist 1, can we still find all addresses we should know? If not, what kinds of addresses are unknown? Think about the solutions for each problem. (Hint: stack, return address, GOTO)
