@@ -18,3 +18,6 @@ Let's write a new shellcode that can be injected, by changing some parts of the 
 <details>
   <summary><b>SPOILERS</b></summary>
 </details>
+
+### Assembly
+    
