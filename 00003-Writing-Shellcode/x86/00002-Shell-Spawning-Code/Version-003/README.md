@@ -5,12 +5,12 @@
 ## Introduction
 In the [Version. 2](https://github.com/reruo321/OS-Self-Study/tree/main/00003-Writing-Shellcode/x86/00002-Shell-Spawning-Code/Version-002),
 our shellcode had the injecting form.
-We cannot use it yet because there are some problems.
+However, we cannot use it yet because there are some problems.
 
 ## TODO
-1. 1. Compile the previous [Version. 2 code](https://github.com/reruo321/OS-Self-Study/blob/main/00003-Writing-Shellcode/x86/00002-Shell-Spawning-Code/Version-002/src/spawn2.s).
+1. Compile the previous [Version. 2 code](https://github.com/reruo321/OS-Self-Study/blob/main/00003-Writing-Shellcode/x86/00002-Shell-Spawning-Code/Version-002/src/spawn2.s).
 2. Open the executable file with a hex editor.
-3. Can you find which part(s) will make the problem? Remind that  (See the Hint 1 below if you still don't get it.)
+3. Can you find which part(s) will make the problem? Remind that we are going to copy the shellcode into the buffer. (See the Hint 1 below if you still don't get it.)
 4. 
 
 ## Hints
