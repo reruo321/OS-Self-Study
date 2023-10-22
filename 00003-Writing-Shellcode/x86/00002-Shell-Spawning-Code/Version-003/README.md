@@ -18,7 +18,7 @@ However, we cannot use it yet because there are some problems.
 <details>
   <summary><b>SPOILERS</b></summary>
   
-There are some `00`s in the code. The hexadecimal notation for null is `00`.
+We will inject the shellcode using some vulnerable C functions, such as `strcpy`, `strcat`, and `printf`. There are some `00`s in the code. `00` is the hexadecimal notation for null. Imagine, you are going to put a bunch of bytes including `\0`s into the `strcpy`!
 Therefore, only some bytes in front of the first `00` will run.
 </details>
 
