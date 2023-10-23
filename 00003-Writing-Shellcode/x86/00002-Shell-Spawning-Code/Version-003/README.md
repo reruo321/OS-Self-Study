@@ -33,11 +33,27 @@ How should we edit the source code to solve the problems?
 
 The solution itself is very simple: Remove all `00`s in the object file!
 
-There are some instructions that produce `00`. For example,
+You might try to erase the `00`s in the object file with a hex editor... Of course you can't. STOP IT! Edit the assembly source code instead than messing up the object file. When you are forced to edit raw machine code, there will be mainly three reasons:
+
+1. Source code is unavailable or corrupted.
+2. For security or hacking purposes.
+3. Implement custom functionality or work around hardware limitations when working on low-level software. (Bootloader, firmware, etc..)
+
+Unless you are a machine or you have some valid reasons to edit the raw machine code, don't do that. It is error-prone behavior, and harder to solve the problem. It is not a common practice in regular development.
+
+Before modifying something, let's analyze the machine code with the original source code first! `objdump` is very useful to see both codes. Note that with the `-M suffix` option, it will print the exact mnemonic suffix.
+
+    $ objdump -d -M suffix spawn2.o
+
+You may notice some instructions produced `00`s. For example,
 
     movl $0, %eax
 
+Has the machine code representation like this:
 
+    b8 00 00 00 00
+
+Now think about why `00`s are included. How to remove them without violating the functionality of the instructions?
 
 </details>
 
