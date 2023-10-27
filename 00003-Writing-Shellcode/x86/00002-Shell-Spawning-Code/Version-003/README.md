@@ -63,4 +63,7 @@ Now think about why `00`s are included. How to remove them without violating the
 </details>
 
 ### Assembly
-    
+### Check Lists
+Here are some instructions that may produce `00`s in your machine code.
+
+* `movl $0, %eax`
