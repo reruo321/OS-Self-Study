@@ -1,5 +1,5 @@
 # Developing Device Driver
-Device driver enables a kernel to communicate with hardwares. The progamming is a part of kernel programming.
+Device driver enables a kernel to communicate with hardwares. The programming is a part of kernel programming.
 
 1. Develop a **Linux kernel module**.
 2. Create a **virtual device** using the kernel module.
