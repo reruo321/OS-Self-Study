@@ -5,3 +5,6 @@ We need to develop a Linux kernel module before developing a device driver.
 * **Dynamic Loading**: When load and unload a kernel module dynamically, it does not need to reboot the system.
 * **Kernel Space Access**: Device drivers operate in the kernel space instead of user space. It provides security and stability.
 * **Isolation**: Since kernel modules provide a level of isolation from the rest of the kernel, we can recover its bug or crashes just by unloading the module.
+
+## Steps
+### 1. C Source Code for the Module
