@@ -11,3 +11,6 @@ Device driver enables a kernel to communicate with hardwares. The programming is
 3. Compile the module. It should be able to access the kernel header files.
 4. Load the kernel module to the Linux kernel. Commands such as `insmod` or `modprobe` will be used.
 5. When finishing to load the module, virtual device will be added to the system. Register it with the kernel with a command like `register_chrdev`.
+
+## My Projects
+* [My First Simple Linux Device Driver](https://github.com/reruo321/My-First-Simple-Linux-Device-Driver)
