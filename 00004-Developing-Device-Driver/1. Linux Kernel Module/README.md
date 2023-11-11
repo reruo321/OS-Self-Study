@@ -8,7 +8,9 @@ We need to develop a Linux kernel module before developing a device driver.
 * **Avoiding Monolithic Kernel Changes**: It avoids making changes directly to the Linux kernel whose design is monolithic.
 
 ## Implementation
-Here are a list of some features we can implement on a Linux kernel module.
+Here is a list of some functionalities we can implement on a Linux kernel module.
+
+(★ is vital for all modules.)
 
 1. ★ Module Initialization
 2. ★ Module Loading
